@@ -28,17 +28,6 @@ function payUser(name, gameid){
     });
 }
 
-function getHighscores(gameid){
-    var scores = new Firebase("https://moneymoney.firebaseio.com/games/"+gameid);
-    scores.on('child_added', pushHighscore);
+function payWinners(){
 }
 
-function pushHighscore(data){
-    var obj = data.val();
-    for(var property in obj){
-        console.log(property);
-        console.log(obj[property].score);
-    }
-}
-
-getHighscores(1);
