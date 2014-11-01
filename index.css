@@ -1,0 +1,130 @@
+
+body {
+    width:100%;
+    height:100%;
+    margin:0;
+    padding:0;
+    //font-family: 'Jura', sans-serif;
+    font-family: 'Fredoka One', cursive;
+    //font-family: 'Nunito', sans-serif;
+    font-size:20px;
+}
+
+input {
+    width:80%;
+    margin:auto;
+}
+
+a {
+    text-decoration:none;
+    display:block;
+}
+
+ul {
+    list-style:none;
+    margin:0;
+    padding:20px;
+    border:2px solid black;
+    border-radius:5px;
+    margin:20px;
+}
+
+li {
+    padding:20px;
+}
+
+section {
+    display:none;
+    text-align:center;
+}
+
+#highscore {
+    display:block !important;
+}
+
+#hstitle {
+    background-color:grey;
+    padding:20px;
+}
+
+#gametitle {
+    background-color:grey;
+    padding:20px;
+}
+
+#hsback {
+    padding:20px;
+    position:absolute;
+}
+
+.btn {
+    padding:20px;
+    margin:20px;
+    border:2px solid black;
+    border-radius:5px;
+    background-color:yellow;
+    color:white;
+}
+
+#playbtn {
+background: #00ff08; /* Old browsers */
+background: -moz-linear-gradient(top,  #00ff08 0%, #03db00 4%, #03db00 51%, #46bf00 56%, #46bf00 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#00ff08), color-stop(4%,#03db00), color-stop(51%,#03db00), color-stop(56%,#46bf00), color-stop(100%,#46bf00)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #00ff08 0%,#03db00 4%,#03db00 51%,#46bf00 56%,#46bf00 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #00ff08 0%,#03db00 4%,#03db00 51%,#46bf00 56%,#46bf00 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #00ff08 0%,#03db00 4%,#03db00 51%,#46bf00 56%,#46bf00 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #00ff08 0%,#03db00 4%,#03db00 51%,#46bf00 56%,#46bf00 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ff08', endColorstr='#46bf00',GradientType=0 ); /* IE6-9 */
+border:2px solid #26B200;
+}
+
+#cashoutbtn {
+    border:2px solid rgb(253,208,15);
+background: #fff3c9; /* Old browsers */
+background: -moz-linear-gradient(top,  #fff3c9 0%, #ffdc4e 4%, #ffdc4e 51%, #ffcc00 56%, #ffcc00 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fff3c9), color-stop(4%,#ffdc4e), color-stop(51%,#ffdc4e), color-stop(56%,#ffcc00), color-stop(100%,#ffcc00)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #fff3c9 0%,#ffdc4e 4%,#ffdc4e 51%,#ffcc00 56%,#ffcc00 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #fff3c9 0%,#ffdc4e 4%,#ffdc4e 51%,#ffcc00 56%,#ffcc00 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #fff3c9 0%,#ffdc4e 4%,#ffdc4e 51%,#ffcc00 56%,#ffcc00 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #fff3c9 0%,#ffdc4e 4%,#ffdc4e 51%,#ffcc00 56%,#ffcc00 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fff3c9', endColorstr='#ffcc00',GradientType=0 ); /* IE6-9 */
+}
+
+#viewhsbtn {
+background: #f9f9f9; /* Old browsers */
+background: -moz-linear-gradient(top,  #f9f9f9 0%, #e0f3fa 3%, #d8f0fc 50%, #b8e2f6 51%, #b6dffd 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f9f9f9), color-stop(3%,#e0f3fa), color-stop(50%,#d8f0fc), color-stop(51%,#b8e2f6), color-stop(100%,#b6dffd)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #f9f9f9 0%,#e0f3fa 3%,#d8f0fc 50%,#b8e2f6 51%,#b6dffd 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #f9f9f9 0%,#e0f3fa 3%,#d8f0fc 50%,#b8e2f6 51%,#b6dffd 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #f9f9f9 0%,#e0f3fa 3%,#d8f0fc 50%,#b8e2f6 51%,#b6dffd 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #f9f9f9 0%,#e0f3fa 3%,#d8f0fc 50%,#b8e2f6 51%,#b6dffd 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9f9f9', endColorstr='#b6dffd',GradientType=0 ); /* IE6-9 */
+border:2px solid #9CD4FC;
+}
+
+#viewhsbtn:active {
+background: #b6dffd; /* Old browsers */
+background: -moz-linear-gradient(top,  #b6dffd 0%, #b8e2f6 31%, #d8f0fc 73%, #e0f3fa 97%, #f9f9f9 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#b6dffd), color-stop(31%,#b8e2f6), color-stop(73%,#d8f0fc), color-stop(97%,#e0f3fa), color-stop(100%,#f9f9f9)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #b6dffd 0%,#b8e2f6 31%,#d8f0fc 73%,#e0f3fa 97%,#f9f9f9 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #b6dffd 0%,#b8e2f6 31%,#d8f0fc 73%,#e0f3fa 97%,#f9f9f9 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #b6dffd 0%,#b8e2f6 31%,#d8f0fc 73%,#e0f3fa 97%,#f9f9f9 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #b6dffd 0%,#b8e2f6 31%,#d8f0fc 73%,#e0f3fa 97%,#f9f9f9 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b6dffd', endColorstr='#f9f9f9',GradientType=0 ); /* IE6-9 */
+}
+
+#cashoutbtn:active {
+    background: #b4ddb4; /* Old browsers */
+    background: -moz-linear-gradient(top,  #b4ddb4 0%, #83c783 0%, #52b152 5%, #008a00 96%, #005700 100%, #002400 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#b4ddb4), color-stop(0%,#83c783), color-stop(5%,#52b152), color-stop(96%,#008a00), color-stop(100%,#005700), color-stop(100%,#002400)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #b4ddb4 0%,#83c783 0%,#52b152 5%,#008a00 96%,#005700 100%,#002400 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #b4ddb4 0%,#83c783 0%,#52b152 5%,#008a00 96%,#005700 100%,#002400 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #b4ddb4 0%,#83c783 0%,#52b152 5%,#008a00 96%,#005700 100%,#002400 100%); /* IE10+ */
+    background: linear-gradient(to top,  #b4ddb4 0%,#83c783 0%,#52b152 5%,#008a00 96%,#005700 100%,#002400 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b4ddb4', endColorstr='#002400',GradientType=0 ); /* IE6-9 */
+}
+
+li span {
+    float:right;
+}
+
