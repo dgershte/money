@@ -136,7 +136,7 @@ canvas {
 
 #gamebackbtn {
     position:absolute;
-    top:0;
+    bottom:0;
     left:0;
     padding:20px;
     z-index:2;
@@ -193,6 +193,7 @@ padding: 0px;
 position: absolute;
 width: 100px;
 margin-left: 20px;
+bottom:15px;
 }
 
 .btn {
