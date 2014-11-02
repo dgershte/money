@@ -20,10 +20,6 @@ function saveRun(name, gameid, newscore, rundata){
 }
 
 
-var fbmain = new Firebase("https://moneymoney.firebaseio.com/");
-fbmain.on('value',function(maindata){
-});
-
 function payUser(name, gameid){
         fbmain.child("urls").child(name).child("coins").transaction(function(coins){
         if(coins>500){
@@ -113,6 +109,7 @@ function updateCoinDiv(){
 
 function getCoins(){
     var fbmain = new Firebase("https://moneymoney.firebaseio.com/");
+    console.log(fbmain);
     fbmain.child("urls").child(userid).child("coins").once('value',function(data){
         if(data.val()!=null){
             updateCoins(data.val());
