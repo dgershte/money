@@ -347,8 +347,9 @@ function drawPlatforms(){
         var platform = platforms[i];
         context.drawImage(leftcap,Math.round(platform.x-9), platform.y);
         var jj=0;
-        for(var j = 0,k=0; j < platform.width; j+=60,k++) {
-            context.drawImage(platformimg[k%3],Math.round(platform.x+k*59),platform.y);
+        var platformIndex = Math.random() * (2 - 0);
+        for(var j = 0; j < platform.width; j+=60) {
+            context.drawImage(platformimg[platformIndex],Math.round(platform.x+k*59),platform.y);
             jj++;
         }
         context.drawImage(leftcap,platform.x,platform.y);
