@@ -10,6 +10,10 @@
     </head>
     <body>
         <div id="container">
+        <div id="bitcoinsheader">
+            <div id="bitcoins"></div>
+            <img src="images/bitcoin.png"/>
+        </div>
         <section id="highscore">
             <div class="btn" id="hsback">back</div>
             <div id="hstitle">HIGHSCORES</div>
@@ -24,7 +28,7 @@
         </section>
         <section id="play">
             <div id="gametitle"/>BitGame</div>
-            <a class="btn" id="playbtn">Play</a>
+            <a class="btn" id="playbtn">Play <span class="smaller">0.005 BTC</span></a>
             <a class="btn" id="cashoutbtn">Cash Out</a>
             <a class="btn" id="viewhsbtn">View Highscores</a>
             </section>
