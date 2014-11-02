@@ -124,4 +124,8 @@ $(document).ready( function() {
         $("#play").hide();
         $("#cashout").show();
     });
+    $("#cashoutback").click( function() {
+        $("#cashout").hide();
+        $("#play").show();
+    });
 });

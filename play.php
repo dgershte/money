@@ -12,6 +12,7 @@
         <script src="js/jquery.js"></script>
         <script src="https://cdn.firebase.com/js/client/1.1.3/firebase.js"></script>
         <script src="js/logic.js"></script>
+        <div id="container">
         <section id="waitonbitcoin">
             <div class="container">
                 <h3>Waiting on bitcoins...</h3>
@@ -48,6 +49,7 @@
             <? echo $object->input_address ?>
             </div>
         </section>
+        </div>
 
         <script>
 

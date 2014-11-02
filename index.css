@@ -87,11 +87,20 @@ h3 {
 section {
     display:none;
     text-align:center;
-    height:375px;
+    height:100%;
     position:absolute;
     margin:auto;
-    top:0;
+    width:100%;
+}
+
+#container {
     width:667px;
+    height:375px;
+    position:absolute;
+    background-image:url('images/bgplain.png');
+    background-repeat:repeat-x;
+    background-size:auto 100%;
+    top:0;
 }
 
 
@@ -143,6 +152,17 @@ canvas {
     background-size:auto 100%;
 }
 
+#enterbitcoin {
+    width:350px;
+    margin-top:120px;
+}
+
+#cashout {
+    background-image:url('images/bgplain.png');
+    background-repeat:repeat-x;
+    background-size:auto 100%;
+}
+
 #play {
     background-image:url('images/bgplain.png');
     background-repeat:repeat-x;
@@ -160,7 +180,7 @@ canvas {
     margin:auto;
 }
 
-#hsback {
+#hsback, #cashoutback {
 padding: 0px;
 position: absolute;
 width: 100px;
@@ -206,7 +226,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d5edb6', end
     text-shadow: -2px 0 #82A62F, 0 2px #82A62F, 2px 0 #82A62F, 0 -2px #82A62F;
 }
 
-#cashoutbtn, #createuserbtn {
+#cashoutbtn, #createuserbtn, #cashoutbtn2 {
     border:2px solid rgb(253,208,15);
 background: #fff3c9; /* Old browsers */
 background: -moz-linear-gradient(top,  #fff3c9 0%, #ffdc4e 4%, #ffdc4e 51%, #ffcc00 56%, #ffcc00 100%); /* FF3.6+ */
@@ -256,7 +276,7 @@ background: linear-gradient(to bottom,  #8ebec9 0%,#8ebec9 49%,#b0d4d4 50%,#b0d4
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8ebec9', endColorstr='#b0d4d4',GradientType=0 ); /* IE6-9 */
 }
 
-#cashoutbtn:active, #createuserbtn:active {
+#cashoutbtn:active, #createuserbtn:active, #cashoutbtn2:active {
 background: #ffcc00; /* Old browsers */
 background: -moz-linear-gradient(top,  #ffcc00 0%, #ffcc00 44%, #ffdc4e 49%, #ffdc4e 96%, #fff3c9 100%); /* FF3.6+ */
 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffcc00), color-stop(44%,#ffcc00), color-stop(49%,#ffdc4e), color-stop(96%,#ffdc4e), color-stop(100%,#fff3c9)); /* Chrome,Safari4+ */

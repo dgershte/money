@@ -5,14 +5,14 @@
         <link rel="stylesheet" href="index.css" type="text/css" charset="utf-8"/>
     </head>
     <body>
-        
+        <div id="container"> 
         <section id="screen1">
             <div class="container">
             <input placeholder="enter user name" id="namebox"></input>
             <div onclick="createUser()" id="createuserbtn" class="btn">Create New User</div>
             </div>
         </section>
-
+        </div>
         <script src="js/jquery.js"></script>
         <script src="https://cdn.firebase.com/js/client/1.1.3/firebase.js"></script>
         <script src="js/logic.js"></script>
