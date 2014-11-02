@@ -152,5 +152,5 @@ $(document).ready( function() {
         $("#cashout").hide();
         $("#play").show();
     });
-    $("#bitcoins").html(coins/1000000);
+    $("#bitcoins").html(""+coins/1000000);
 });
