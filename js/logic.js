@@ -25,7 +25,7 @@ function saveRun(name, gameid, newscore, rundata){
 
 
 var fbmain = new Firebase("https://moneymoney.firebaseio.com/");
-fbmain.once('value',function(maindata){
+fbmain.on('value',function(maindata){
 });
 function payUser(name, gameid){
         fbmain.transaction(function(maindata){
@@ -114,6 +114,14 @@ function getCurrentBlock(){
     });
 }
 
+function getSeedForBlock(block){
+    fbmain.child("games").child(block).child("seed").on('value',function(data){
+        if(data.val()!=null){
+            updateSeed(data.val());
+        }
+    });
+}
+
 //get the number of coins
 getCoins("Danny");
 
@@ -133,8 +141,12 @@ function updatecoins(val){
 block = -1;
 function updateBlock(val){
     block = val;
-    console.log(val);
-    payUser("g1khchwy4l2o891",block);
+}
+
+function updateSeed(val){
+    seed = val;
+    console.log(seed);
 }
 
 getCurrentBlock();
+//payUser("g1khchwy4l2o891",block);
