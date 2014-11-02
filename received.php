@@ -1,6 +1,7 @@
 <? 
 include('config.php');
 $secret = $CONFIG['secret'];
+$id = $_GET['name'];
 if($_GET['secret']!=$secret){
     //don't accept
 //    echo "false"
@@ -13,20 +14,16 @@ $input_address = $_GET['input_address'];
 $value_in_satoshi = $_GET['value'];
 $value_in_btc = $value_in_satoshi / 100000000;
 
-//Commented out for testing
 if ($_GET['test'] == true) {
 //    return;
 }
-//echo $value_in_btc;
-/*
-<script src="https://cdn.firebase.com/js/client/1.1.3/firebase.js"></script>
-<script>
-var btc_earned = 
-var userid = "<? echo $_GET['name']?>";
-var pass = "<? echo $_GET['secret']?>";
-var fb = new Firebase("https://moneymoney.firebaseio.com/urls/"+userid);
-    fb.update({coins:btc_earned});
-</script>
- */
+$url = "https://moneymoney.firebaseio.com/urls/".$id.".json";
+$data = '{"coins": "'.$value_in_satoshi.'"}';
+$ch = curl_init();
+curl_setopt($ch,CURLOPT_URL,$url);
+curl_setopt($ch,CURLOPT_CUSTOMREQUEST,'PATCH');
+curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+curl_setopt($ch,CURLOPT_POSTFIELDS,$data);
+curl_exec($ch);
 echo '*ok*';
 ?>

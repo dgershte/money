@@ -16,7 +16,7 @@ for( $i = 0; $i <= $strlen; $i++ ) {
     $num += ord($char);
 }
 echo $num;
-$url = "https://moneymoney.firebaseio.com/games2.json";
+$url = "https://moneymoney.firebaseio.com/games.json";
 $data = '{"'.$num.'": {"seed":"'.$num.'","pot":0,"over":false},"currblock":"'.$num.'"}';
 curl_close($ch);
 $ch = curl_init();

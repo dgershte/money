@@ -42,7 +42,7 @@
         // set URL and other appropriate options
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_HEADER, 0);
-        //curl_exec($ch);
+        curl_exec($ch);
         ?>
             </div>
         </section>
