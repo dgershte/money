@@ -11,8 +11,8 @@
     <body>
         <div id="container">
         <div id="bitcoinsheader">
+            <img style="float:left" src="images/bitcoin.png"/>
             <div id="bitcoins"></div>
-            <img src="images/bitcoin.png"/>
         </div>
         <section id="highscore">
             <div class="btn" id="hsback">back</div>
