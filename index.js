@@ -103,7 +103,7 @@ $(document).ready( function() {
         $("#highscore").show();
     });
     $("#hsback").click( function() {
-        $("#highscore").slideUp("slow");
+        $("#highscore").hide();
         $("#game").hide();
         $("#play").show();
     });
@@ -118,5 +118,13 @@ $(document).ready( function() {
         $("#game").hide();
         $("#play").show();
         startStop();
+    });
+    $("#cashoutbtn").click( function() {
+        $("#play").hide();
+        $("#cashout").show();
+    });
+    $("#cashoutback").click( function() {
+        $("#cashout").hide();
+        $("#play").show();
     });
 });

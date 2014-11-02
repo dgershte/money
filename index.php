@@ -9,12 +9,18 @@
         <link rel="stylesheet" href="index.css" type="text/css" charset="utf-8"/>
     </head>
     <body>
+        <div id="container">
         <section id="highscore">
             <div class="btn" id="hsback">back</div>
             <div id="hstitle">HIGHSCORES</div>
             <ul id="hslist">
             </ul>
             <div class="btn" id="playagain">Play Again</div>
+        </section>
+        <section id="cashout">
+            <div class="btn" id="cashoutback">back</div>
+            <input id="enterbitcoin" placeholder="Enter Bitcoin Address"></input>
+            <div class="btn" id="cashoutbtn2">Cash Out</div>
         </section>
         <section id="play">
             <div id="gametitle"/>BitGame</div>
@@ -27,6 +33,7 @@
             <canvas id="bg" width="667px" height="375"></canvas>
             <canvas id="overlay" width="667px" height="375"></canvas>
         </section>
+        </div>
     <script type="text/javascript" src="js/jquery.js"></script>
     <script src="https://cdn.firebase.com/js/client/1.1.3/firebase.js"></script>
     <script src="js/logic.js"></script>
