@@ -341,6 +341,7 @@ function droppedChar(character){
 $(document).ready( function() {
     $("#playagain").click( function() {
         $("#highscore").slideUp();
+        if( $("#game").css("display") == "none") $("#game").show();
         restart();
     });
 });

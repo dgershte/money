@@ -27,8 +27,11 @@ function getHighscores(gameid){
 function pushHighscore(data){
     var obj = data.val();
     var list = $("#hslist");
+    var i = 0;
     for(var property in obj){
-        list.append('<li>'+obj[property].name+'<span>'+obj[property].score+'<img src="images/bitcoin.png"/></span></li>');
+        if(i > 2) return;
+        i++;
+        list.append('<li>'+obj[property].name+'<span>'+obj[property].score+'</span></li>');
     }
 }
 
