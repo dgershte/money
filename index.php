@@ -11,7 +11,7 @@
     <body>
         <div id="container">
         <div id="bitcoinsheader">
-            <img style="float:left" src="images/bitcoin.png"/>
+            <img style="float:left;height: 25px;padding-top: 5px" src="images/bitcoin.png"/>
             <div id="bitcoins"></div>
         </div>
         <section id="highscore">
@@ -19,7 +19,7 @@
             <div id="hstitle">HIGHSCORES</div>
             <ul id="hslist">
             </ul>
-            <div class="btn" id="playagain">Play Again</div>
+            <div class="btn" id="playagain">Replay <span class="smaller">0.005 BTC</span></div>
         </section>
         <section id="cashout">
             <div class="btn" id="cashoutback">back</div>
@@ -27,7 +27,7 @@
             <div class="btn" id="cashoutbtn2">Cash Out</div>
         </section>
         <section id="play">
-            <div id="gametitle"/>BitGame</div>
+            <img id="gametitle" src="images/logo.png"/></img>
             <a class="btn" id="playbtn">Play <span class="smaller">0.005 BTC</span></a>
             <a class="btn" id="cashoutbtn">Cash Out</a>
             <a class="btn" id="viewhsbtn">View Highscores</a>
