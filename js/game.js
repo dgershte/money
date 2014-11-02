@@ -178,9 +178,6 @@ function enterframe(){
     drawChar(character);
     scorestr.html(score);
     score+=20+Math.ceil(10*platformspd);
-    if(frame>300 && frame<302){
-        console.log(saveStuff);
-    }
 }
 
 function createPlatforms(){
@@ -255,11 +252,13 @@ function drawPlatforms(){
     for(var i =0; i<platforms.length;i++){
         var platform = platforms[i];
         context.drawImage(leftcap,platform.x-11, platform.y);
+        var jj=0;
         for(var j = 0,k=0; j < platform.width; j+=60,k++) {
-            context.drawImage(platformimg[k%3],platform.x+k*60,platform.y);
+            context.drawImage(platformimg[k%3],Math.round(platform.x+k*59),platform.y);
+            jj++;
         }
         context.drawImage(leftcap,platform.x,platform.y);
-        context.drawImage(rightcap,platform.x+platform.width,platform.y);
+        context.drawImage(rightcap,platform.x+platform.width-jj,platform.y);
     }
 }
 
@@ -289,11 +288,10 @@ function gameOver(){
     stopped=true;
 
     var saveStr = "";
-    for(var i =0; i< saveStr.length;i++){
+    for(var i =0; i< saveStuff.length;i++){
         saveStr+=saveStuff[i];
         saveStr+="|";
     }
-    saveStr=saveStr.substr(0,saveStr.length-1);
     endGame(score,saveStr);
     $("#highscore").slideDown();
 }

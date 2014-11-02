@@ -6,21 +6,18 @@ function receivedData(response){
 
 // submit score for game
 function saveRun(name, gameid, newscore, rundata){
-    var currgame = new Firebase("https://moneymoney.firebaseio.com/games/"+gameid);
-    currgame.transaction(function(game){
+    console.log(gameid + " "+name);
+    fbmain.child("games").child(gameid).child("scores").child(name).transaction(function(game){
+        console.log(game)
         if(game==null){
             return game;
-        }
-        if(game["scores"]==null || game["scores"][name]==null){
-            return game;
+            //return {"score":newscore,rundata:rundata,name:humanName};
         }
 
-        if(newscore>game["scores"][name]["score"]){
-            game["scores"][name]["score"]=newscore;
-            game["scores"][name]["rundata"]=rundata;
-            game["scores"][name]["name"]=humanName;
-            return game;
+        if(newscore>game["score"]){
+            return {"score":newscore,rundata:rundata,name:humanName};
         }
+        return game;
     });
 }
 
@@ -30,23 +27,18 @@ fbmain.on('value',function(maindata){
 });
 
 function payUser(name, gameid){
-        fbmain.transaction(function(maindata){
-        if(maindata==null){
-            return maindata;
+        fbmain.child("urls").child(name).child("coins").transaction(function(coins){
+        if(coins>500){
+            return coins-500;
         }
-        console.log(maindata);
-        if(maindata["urls"][name]["coins"]>50 && maindata["games"][gameid]!=null){
-            if(maindata["games"][gameid]["scores"]==null){
-                maindata["games"][gameid]["scores"]={};
-                maindata["games"][gameid]["pot"]=0;
-            } else if(maindata["games"][gameid]["scores"][name]!=null){
-                return maindata;
-            }
-            maindata["urls"][name]["coins"]-=500;
-            maindata["games"][gameid]["pot"]+=500;
-            maindata["games"][gameid]["scores"][name]={score:0, rundata:"",name:maindata["urls"][name]["name"]};
-            return maindata;
+        return coins;
+        });
+        fbmain.child("games").child(block).child("pot").transaction(function(pot){return pot+500;});
+        fbmain.child("games").child(block).child("scores").child(name).transaction(function(userscore){
+        if(userscore==null){
+            userscore={score:0,rundata:"",name:humanName};
         }
+        return userscore;
     });
 }
 
