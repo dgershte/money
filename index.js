@@ -50,7 +50,7 @@ function getHighscores(gameid){
 
         for(var i =0;i<scoreObjs.length;i++){
             if(i > 2) return;
-            list.append('<li><img class="place" src="images/place'+(i+1)+'.png"/><span class="username">'+scoreObjs[i].name+'</span><span class="userscore">'+scoreObjs[i].score+'</span></li>');
+            list.append('<li><img class="place" src="images/place'+(i+1)+'.png"/><div class="username">'+scoreObjs[i].name+'</div><div class="userscore">'+scoreObjs[i].score+'</div></li>');
         }
     });
 }

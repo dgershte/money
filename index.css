@@ -126,6 +126,17 @@ section {
 
 .place {
     height:50px;
+    float:left;
+}
+
+.username {
+    float:left;
+    margin-top: 5px;
+    margin-left: 15px;
+}
+
+.userscore {
+    margin-top:5px;
 }
 
 canvas {
