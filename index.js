@@ -1,10 +1,6 @@
-var users = new Array();
-
-function User(userid,place) {
-    this.userid = userid;
-    this.place = place;
-}
-
+window.addEventListener('load', function() {
+        FastClick.attach(document.body);
+}, false);
 
 function addScore(user) {
     var place = user.place;
