@@ -29,6 +29,7 @@ function Char() {
     this.lasty=0;
     this.lastplat=null;
     this.onground=false;
+    this.frame=0;
 }
 
 var grav = 2;
@@ -48,6 +49,7 @@ leftcap.src = 'images/platformleft.png';
 var rightcap = new Image();
 rightcap.src = 'images/platformright.png';
 var platformimg = new Array();
+var charimg = new Array();
 
 for(var i = 1; i < 4; i++) {
     var pimg = new Image();
@@ -55,6 +57,11 @@ for(var i = 1; i < 4; i++) {
     platformimg.push(pimg);
 }
 
+for(var i = 1; i < 12; i++) {
+    var cimg = new Image();
+    cimg.src = 'images/dog000'+i+'.png';
+    charimg.push(cimg);
+}
 
 var saveStuff=[];
 var demo=[11, 13, 32, 35, 65, 88, 97, 99, 110, 123, 150, 158, 205, 225, 235, 236, 264, 273];
@@ -127,10 +134,12 @@ var frame = 0;
 
 function mousedown(){
     mousehit=true;
+    return false;
 }
 
 function mouseup(){
     mousehit=false;
+    return false;
 }
 
 var demoindex = 0;
@@ -143,6 +152,8 @@ function enterframe(){
     frame++;
     canvas.addEventListener('mousedown',mousedown);
     canvas.addEventListener('mouseup',mouseup);
+    canvas.addEventListener('touchstart',mousedown);
+    canvas.addEventListener('touchend',mouseup);
     context = canvas.getContext('2d');
     if(true){
         if(mousehit){
@@ -238,7 +249,8 @@ function updatePlatforms(){
 }
 
 function drawChar(character){
-    context.drawImage(dog,character.x-charwidth,character.y-75);
+    context.drawImage(charimg[character.frame%9],character.x-charwidth,character.y-55);
+    character.frame++;
 }
 
 function drawPlatforms(){

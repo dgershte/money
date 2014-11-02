@@ -21,6 +21,10 @@ body {
     color: rgb(250, 234,56);
     text-shadow: -1px 0 rgb(158,82,12), 0 1px rgb(158,82,12), 1px 0 rgb(158,82,12), 0 -1px rgb(158,82,12);
     z-index:2;
+   -moz-user-select: none; 
+        -khtml-user-select: none; 
+        -webkit-user-select: none; 
+        -o-user-select: none;  
 }
 
 input {
@@ -31,6 +35,7 @@ input {
 a {
     text-decoration:none;
     display:block;
+    
 }
 
 ul {
@@ -56,6 +61,7 @@ section {
 canvas {
     position:absolute;
     left:0;
+    user-select: none;
 }
 
 #game {
@@ -106,6 +112,10 @@ canvas {
     background-color:yellow;
     color:white;
     width:250px;
+-moz-user-select: none; 
+        -khtml-user-select: none; 
+        -webkit-user-select: none; 
+        -o-user-select: none; 
 }
 
 #playbtn {
