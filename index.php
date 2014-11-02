@@ -16,6 +16,11 @@
             </ul>
             <div class="btn" id="playagain">Play Again</div>
         </section>
+        <section id="cashout">
+            <div class="btn" id="cashoutback">back</div>
+            <input placeholder="Enter Bitcoin Address"></input>
+            <div class="btn" id="cashoutbtn2">Cash Out</div>
+        </section>
         <section id="play">
             <div id="gametitle"/>BitGame</div>
             <a class="btn" id="playbtn">Play</a>
