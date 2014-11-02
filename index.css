@@ -36,10 +36,27 @@ li {
 section {
     display:none;
     text-align:center;
+    height:100%;
 }
 
-#highscore {
-    display:block !important;
+#game {
+}
+
+#gamebackbtn {
+    position:absolute;
+    top:0;
+    left:0;
+    padding:20px;
+}
+
+#gamepausebtn {
+    position:absolute;
+    top:0;
+    right:0;
+    padding:20px;
+}
+#play {
+    display:block;
 }
 
 #hstitle {
