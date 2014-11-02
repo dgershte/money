@@ -11,15 +11,17 @@
 
 }
 
+html,body {
+    width:  100%;
+      height: 100%;
+        margin: 0px;
+    }
+
 body {
     width:100%;
     height:100%;
     margin:0;
     padding:0;
-    //font-family: 'Jura', sans-serif;
-    //font-family: 'Fredoka One', cursive;
-    //font-family: 'Nunito', sans-serif;
-    //font-family: 'pipe dream', sans-serif;
 	font-family: 'pipe_dreamregular';
     font-size:31px;
 }
@@ -38,9 +40,13 @@ body {
         outline: 0;
     }
 
+.container {
+    padding-top:120px;
+}
+
 input {
 padding: 10px;
-margin: 10px auto;
+margin: 0 auto 10px auto;
 border-radius: 5px;
 border: 2px solid grey;
 width: 250px;
@@ -73,15 +79,14 @@ section {
     display:none;
     text-align:center;
     height:100%;
-}
-#screen1 {
-    padding:120px;
-    background-image:url('images/bgplain.png');
+
 }
 
+
 #waitonbitcoin {
-    padding:120px;
     background-image:url('images/bgplain.png');
+    background-repeat:repeat-x;
+    background-size:auto 100%;
     display:block;
 } 
 
@@ -91,7 +96,13 @@ canvas {
     user-select: none;
 }
 
+#playagain {
+    width:250px;
+    margin:auto;
+}
+
 #game {
+    width: 667px;
 }
 
 #gamebackbtn {
@@ -110,14 +121,22 @@ canvas {
 
 #highscore {
     background-image:url('images/bgplain.png');
+    background-repeat:repeat-x;
+    background-size:auto 100%;
 }
 
 #screen1 {
     display:block;
+    background-image:url('images/bgplain.png');
+    background-repeat:repeat-x;
+    background-size:auto 100%;
 }
 
 #play {
     background-image:url('images/bgplain.png');
+    background-repeat:repeat-x;
+    background-size:auto 100%;
+    display:block;
 }
 
 #hstitle {
@@ -127,6 +146,7 @@ canvas {
 #gametitle {
     padding:20px;
     width:200px;
+    margin:auto;
 }
 
 #hsback {
@@ -148,7 +168,7 @@ canvas {
         -o-user-select: none; 
 }
 
-#playbtn {
+#playbtn, #playagain {
 border:2px solid #82A62F;
 background: #d5edb6; /* Old browsers */
 background: -moz-linear-gradient(top,  #d5edb6 0%, #a5ce39 3%, #a5ce39 50%, #98c03c 51%, #98c03c 100%); /* FF3.6+ */
@@ -188,7 +208,7 @@ text-shadow: -2px 0 #75ABB7, 0 2px #75ABB7, 2px 0 #75ABB7, 0 -2px #75ABB7;
 border:2px solid #75ABB7;
 }
 
-#playbtn:active {
+#playbtn:active, #playagain:active {
 background: #98c03c; /* Old browsers */
 background: -moz-linear-gradient(top,  #98c03c 0%, #98c03c 49%, #a5ce39 50%, #a5ce39 97%, #d5edb6 100%); /* FF3.6+ */
 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#98c03c), color-stop(49%,#98c03c), color-stop(50%,#a5ce39), color-stop(97%,#a5ce39), color-stop(100%,#d5edb6)); /* Chrome,Safari4+ */

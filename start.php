@@ -7,8 +7,10 @@
     <body>
         
         <section id="screen1">
+            <div class="container">
             <input placeholder="enter user name" id="namebox"></input>
             <div onclick="createUser()" id="createuserbtn" class="btn">Create New User</div>
+            </div>
         </section>
 
         <script src="js/jquery.js"></script>
