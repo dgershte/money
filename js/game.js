@@ -42,6 +42,7 @@ var platformtime=0;
 var character = new Char();
 var gamespd=0;
 var platforms = [];
+var bones = [];
 var timer = null;
 var charwidth=37;
 var dog = new Image();
@@ -53,6 +54,7 @@ rightcap.src = 'images/platformright.png';
 var platformimg = new Array();
 var charimg = new Array();
 var shadedcharimg = new Array();
+var boneimg = new Array();
 var score = 0;
 var stopped=false;
 
@@ -73,6 +75,12 @@ for(var i = 1; i < 12; i++) {
     if(i > 9) cimg.src = 'images/sdog00'+i+'.png';
     else cimg.src = 'images/sdog000'+i+'.png';
     shadedcharimg.push(cimg);
+}
+for(var i = 1; i < 12; i++) {
+    var bimg = new Image();
+    if(i <6) bimg.src = 'images/treat0001.png';
+    else bimg.src = 'images/treat0002.png';
+    boneimg.push(cimg);
 }
 
 var saveStuff=[];
@@ -141,6 +149,7 @@ function restart(){
             shadowChars.push(shadowChar);
         }
     }
+    bones=[];
 }
 
 var mouse = false;
@@ -207,9 +216,13 @@ function enterframe(){
         gameOver();
     }
     createPlatforms();
+    createBones();
     updatePlatforms();
+    updateBones();
+    collideBones();
     context.clearRect(0,0,677,375);
     drawPlatforms();
+    drawBones();
     for(var i=0;i<shadowChars.length;i++){
         drawChar(shadowChars[i],true);
     }
@@ -228,6 +241,27 @@ function createPlatforms(){
         platform.y=platform.y<150?150:platform.y;
         platform.width=Math.round(random()*6+2)*60;
         platforms.push(platform);
+    }
+}
+
+function createBones(){
+    if(random()>.98){
+        var bone = new Bone();
+        bone.x=Math.round(677+random()*110+60);
+        bone.y=platforms[platforms.length-1].y-120+200*random();
+        bones.push(bone);
+    }
+}
+
+function collideBones(){
+    for(var i=0;i<bones.length;i++){
+        var xd = character.x-bones[i].x;
+        var yd = character.y-bones[i].y;
+        var d=xd*xd+yd*yd;
+        if(Math.sqrt(d)<40){
+            bones.splice(i,1);
+            score+=10000;
+        }
     }
 }
 
@@ -265,6 +299,16 @@ function updateChar(character){
     character.y = Math.round(character.y);
     platformtime-=gamespd;
 }
+function updateBones(){
+    for(var i =0; i<bones.length;i++){
+        bones[i].x-=platformspd;
+        if(bones[i].x<=-20){
+            bones.splice(i,1);
+            i--;
+        }
+    }
+    platformspd+=.01;
+}
 
 function updatePlatforms(){
     for(var i =0; i<platforms.length;i++){
@@ -288,6 +332,14 @@ function drawChar(character,shaded){
         context.drawImage(charimg[index],character.x-charwidth,character.y-48);
     }
     character.frame++;
+}
+
+function drawBones(){
+    for(var i =0; i<bones.length;i++){
+        var bone = bones[i];
+        var index = character.frame%11;
+        context.drawImage(boneimg[index],bone.x-10, bone.y-10);
+    }
 }
 
 function drawPlatforms(){

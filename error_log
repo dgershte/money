@@ -64,3 +64,6 @@
 [02-Nov-2014 10:26:55 America/Denver] PHP Catchable fatal error:  Object of class stdClass could not be converted to string in /home/lightbot/public_html/cuckoohash/send.php on line 14
 [02-Nov-2014 10:27:06 America/Denver] PHP Catchable fatal error:  Object of class stdClass could not be converted to string in /home/lightbot/public_html/cuckoohash/send.php on line 14
 [02-Nov-2014 10:27:08 America/Denver] PHP Catchable fatal error:  Object of class stdClass could not be converted to string in /home/lightbot/public_html/cuckoohash/send.php on line 14
+[02-Nov-2014 10:27:48 America/Denver] PHP Catchable fatal error:  Object of class stdClass could not be converted to string in /home/lightbot/public_html/cuckoohash/send.php on line 14
+[02-Nov-2014 10:39:37 America/Denver] PHP Warning:  Illegal string offset 'coins' in /home/lightbot/public_html/cuckoohash/send.php on line 14
+[02-Nov-2014 10:40:25 America/Denver] PHP Catchable fatal error:  Object of class stdClass could not be converted to string in /home/lightbot/public_html/cuckoohash/send.php on line 14
