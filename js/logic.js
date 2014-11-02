@@ -44,7 +44,14 @@ function payUser(name, gameid){
     getCoins(userid);
 }
 
-function getPrizes(pot){
+function getPrizes(){
+    var pot=0;
+    var potprize = fbmain.child("games").child(block).child("pot").once('value',
+        function(potsize){
+            pot=potsize.val();;
+        }
+    }
+
     var prizes = [];
     while(pot!=0){
         var p = Math.ceil(pot/3*2);

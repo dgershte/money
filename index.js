@@ -20,6 +20,7 @@ function addScore(user) {
 
 
 function getHighscores(gameid){
+    getPrizes();
     fbmain.child("games").child(gameid).child("scores").once('value', function(data){
         var obj = data.val();
         console.log(data.val())

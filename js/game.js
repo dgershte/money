@@ -359,6 +359,7 @@ function droppedChar(character){
 $(document).ready( function() {
     $("#playagain").click( function() {
         $("#highscore").slideUp();
+        payUser(userid,block);
         if( $("#game").css("display") == "none") $("#game").show();
         restart();
     });
