@@ -2,6 +2,7 @@
 var m_w = 123456789;
 var m_z = 987654321;
 var mask = 0xffffffff;
+var scorestr = $("#score");
 
 // Takes any integer
 function seed(i) {
@@ -175,6 +176,7 @@ function enterframe(){
     context.clearRect(0,0,677,375);
     drawPlatforms();
     drawChar(character);
+    scorestr.html(score);
     score+=20+Math.ceil(10*platformspd);
     if(frame>300 && frame<302){
         console.log(saveStuff);

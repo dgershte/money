@@ -25,7 +25,7 @@
             </section>
         <section id="game">
             <div id="gamebackbtn" class="yellowfont">back</div>
-            <div id="gamepausebtn" class="yellowfont">2394</div>
+            <div id="score" class="yellowfont">2394</div>
             <canvas id="bg" width="667px" height="375"></canvas>
             <canvas id="overlay" width="667px" height="375"></canvas>
         </section>
