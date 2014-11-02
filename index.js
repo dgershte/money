@@ -47,10 +47,10 @@ function getHighscores(gameid){
             maindata["users"][scoreObjs[i]["name"]]["coins"]+=prize;
             i++;
         }*/
-
+        var pot = [20,10,8];
         for(var i =0;i<scoreObjs.length;i++){
             if(i > 2) return;
-            list.append('<li><img class="place" src="images/place'+(i+1)+'.png"/><div class="username">'+scoreObjs[i].name+'</div><div class="userscore">'+scoreObjs[i].score+'</div></li>');
+            list.append('<li><img class="place" src="images/place'+(i+1)+'.png"/><div class="pot">'+pot[i]+'BTC</div><div class="userscore">'+scoreObjs[i].name+' '+scoreObjs[i].score+'</div></li>');
         }
     });
 }
