@@ -108,7 +108,7 @@ function getHumanName(userid){
     });
 }
 function updateCoinDiv(){
-    $("#bitcoins").html(coins);
+    $("#bitcoins").html(coins/1000);
 }
 
 
