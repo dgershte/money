@@ -34,15 +34,31 @@ body {
         -o-user-select: none;  
 }
 
+*:focus {
+        outline: 0;
+    }
+
+.inputs {
+    padding:40px;
+}
+
 input {
-    width:80%;
-    margin:auto;
+padding: 10px;
+margin: 10px auto;
+border-radius: 5px;
+border: 2px solid grey;
+width: 250px;
+display:block;
 }
 
 a {
     text-decoration:none;
     display:block;
-    
+    clear:both;
+}
+
+#screen1 a {
+    display:inline;
 }
 
 ul {
@@ -92,9 +108,12 @@ canvas {
     background-image:url('images/bgplain.png');
 }
 
+#screen1 {
+    display:block;
+}
+
 #play {
     background-image:url('images/bgplain.png');
-    display:block;
 }
 
 #hstitle {
@@ -138,7 +157,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d5edb6', end
     text-shadow: -2px 0 #82A62F, 0 2px #82A62F, 2px 0 #82A62F, 0 -2px #82A62F;
 }
 
-#cashoutbtn {
+#cashoutbtn, #loginbtn {
     border:2px solid rgb(253,208,15);
 background: #fff3c9; /* Old browsers */
 background: -moz-linear-gradient(top,  #fff3c9 0%, #ffdc4e 4%, #ffdc4e 51%, #ffcc00 56%, #ffcc00 100%); /* FF3.6+ */
@@ -151,7 +170,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fff3c9', end
     text-shadow: -2px 0 rgb(253,208,15), 0 2px rgb(253,208,15), 2px 0 rgb(253,208,15), 0 -2px rgb(253,208,15);
 }
 
-#viewhsbtn {
+#viewhsbtn, #createuserbtn {
 background: #b0d4d4; /* Old browsers */
 background: -moz-linear-gradient(top,  #b0d4d4 0%, #b0d4d4 50%, #8ebec9 51%, #8ebec9 100%); /* FF3.6+ */
 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#b0d4d4), color-stop(50%,#b0d4d4), color-stop(51%,#8ebec9), color-stop(100%,#8ebec9)); /* Chrome,Safari4+ */
@@ -177,7 +196,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#98c03c', end
 
 }
 
-#viewhsbtn:active {
+#viewhsbtn:active, #createuserbtn:active {
 background: #8ebec9; /* Old browsers */
 background: -moz-linear-gradient(top,  #8ebec9 0%, #8ebec9 49%, #b0d4d4 50%, #b0d4d4 100%); /* FF3.6+ */
 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#8ebec9), color-stop(49%,#8ebec9), color-stop(50%,#b0d4d4), color-stop(100%,#b0d4d4)); /* Chrome,Safari4+ */
@@ -189,7 +208,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8ebec9', end
 
 }
 
-#cashoutbtn:active {
+#cashoutbtn:active, #loginbtn:active {
 background: #ffcc00; /* Old browsers */
 background: -moz-linear-gradient(top,  #ffcc00 0%, #ffcc00 44%, #ffdc4e 49%, #ffdc4e 96%, #fff3c9 100%); /* FF3.6+ */
 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffcc00), color-stop(44%,#ffcc00), color-stop(49%,#ffdc4e), color-stop(96%,#ffdc4e), color-stop(100%,#fff3c9)); /* Chrome,Safari4+ */
