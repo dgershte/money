@@ -121,13 +121,17 @@ function getSeedForBlock(block){
             updateSeed(data.val());
         }
     });
+    getHighscores(block);
 }
 
 function loadShadows(block){
     fbmain.child("games").child(block).child("scores").on('value',function(data){
+        shadows = []
         for(var property in data.val()){
             var runs = data.val()[property].rundata;
-            console.log(runs);
+            if(runs!=null){
+                shadows.push(runs.split("|"));
+            }
         }
     });
 }

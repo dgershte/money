@@ -69,7 +69,8 @@ for(var i = 1; i < 12; i++) {
 }
 
 var saveStuff=[];
-var demo=[11, 13, 32, 35, 65, 88, 97, 99, 110, 123, 150, 158, 205, 225, 235, 236, 264, 273];
+var shadows =[];
+var shadowChars = [];
 
 function restart(){
     if(context!=null){
@@ -94,6 +95,7 @@ function restart(){
     platformtime=0;
     character.mouse=false;
     character.droppedTime=0;
+    character.frame=0;
     var p=new Platform();
     p.x=20;
     p.y=300;
@@ -110,6 +112,26 @@ function restart(){
     score=0;
     stopped=false;
     loadShadows(block);
+    shadowChars=[];
+    for(var i =0;i<shadows.length;i++){
+        var shadowChar = new Char();
+        shadowChar.x=100;
+        shadowChar.lasty=0;
+        shadowChar.y=0;
+        shadowChar.xspd=0;
+        shadowChar.yspd=0;
+        shadowChar.frame=0;
+        shadowChar.jump=false;
+        shadowChar.jumptime=0;
+        shadowChar.lastplat=null;
+        platformtime=0;
+        shadowChar.mouse=false;
+        shadowChar.droppedTime=0;
+        shadowChar.y=p.y;
+        shadowChar.lastplat=platforms[0];
+        shadowChars.push(shadowChar);
+        console.log(shadows[i]);
+    }
 }
 
 var mouse = false;
@@ -145,7 +167,6 @@ function enterframe(){
     canvas.addEventListener('touchstart',mousedown);
     canvas.addEventListener('touchend',mouseup);
     context = canvas.getContext('2d');
-    if(true){
         if(mousehit){
             if(mouseon){
                 if(!character.mouse){
@@ -161,18 +182,29 @@ function enterframe(){
             }
             mouseon=true;
         }
-    } else {
-        if(demo.length> 0 && demo[0]==frame){
-            demo.shift();
-            character.mouse=!character.mouse;
+        for(var i =0;i< shadowChars.length;i++){
+            var shadow = shadows[i];
+            if(shadow!=null && shadow.length>0 && shadow[0]==frame){
+                shadows[i].shift();
+                shadowChars[i].mouse=!shadowChars[i].mouse;
+            }
         }
-    }
 
     updateChar(character);
+    for(var i=0;i<shadowChars.length;i++){
+        updateChar(shadowChars[i]);
+    }
+    if(character.y>500){
+        gameOver();
+    }
     createPlatforms();
     updatePlatforms();
     context.clearRect(0,0,677,375);
     drawPlatforms();
+    for(var i=0;i<shadowChars.length;i++){
+        drawChar(shadowChars[i]);
+        //console.log(shadowChars[i]);
+    }
     drawChar(character);
     scorestr.html(score);
     score+=20+Math.ceil(10*platformspd);
@@ -275,9 +307,6 @@ function landedChar(character){
                 return true;
             }
         }
-    }
-    if(character.y>500){
-        gameOver();
     }
     return false;
 }

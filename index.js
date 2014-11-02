@@ -98,7 +98,6 @@ function endGame(score,rundata){
 }
 
 $(document).ready( function() {
-    getHighscores(1);
     $("#viewhsbtn").click( function() {
         $("#play").hide();
         $("#highscore").show();
