@@ -18,7 +18,7 @@ function pushHighscore(data){
     var obj = data.val();
     var list = $("#hslist");
     for(var property in obj){
-        list.append('<li>'+property+'<span>'+obj[property].score+'</span></li>');
+        list.append('<li>'+property+'<span>'+obj[property].score+'<img src="images/bitcoin.png"/></span></li>');
         console.log(property);
         console.log(obj[property].score);
     }
