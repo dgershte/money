@@ -334,6 +334,7 @@ function gameOver(){
         }
         endGame(score,saveStr);
         getHighscores(block);
+        getCoins(userid);
     }
     stopped=true;
 
