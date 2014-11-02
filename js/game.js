@@ -293,6 +293,7 @@ function gameOver(){
         saveStr+="|";
     }
     saveStr=saveStr.substr(0,saveStr.length-1);
+    console.log(saveStr);
     endGame(score,saveStr);
     $("#game").hide();
     $("#highscore").show(); 

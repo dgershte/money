@@ -6,20 +6,15 @@ function receivedData(response){
 
 // submit score for game
 function saveRun(name, gameid, newscore, rundata){
-    var currgame = new Firebase("https://moneymoney.firebaseio.com/games/"+gameid);
-    currgame.transaction(function(game){
+    console.log(gameid + " "+name);
+    fbmain.child("games").child(gameid).child("/scores/").child(name).transaction(function(game){
+        console.log(game)
         if(game==null){
             return game;
         }
-        if(game["scores"]==null || game["scores"][name]==null){
-            return game;
-        }
 
-        if(newscore>game["scores"][name]["score"]){
-            game["scores"][name]["score"]=newscore;
-            game["scores"][name]["rundata"]=rundata;
-            game["scores"][name]["name"]=humanName;
-            return game;
+        if(newscore>game["score"]){
+            return {"score":newscore,rundata:rundata,name:humanName};
         }
     });
 }
@@ -30,6 +25,21 @@ fbmain.on('value',function(maindata){
 });
 
 function payUser(name, gameid){
+    fbmain.child("urls").child(name).child("coins").transaction(function(coins){
+        if(coins>500){
+            return coins-500;
+        }
+        });
+        fbmain.child("games").child(block).child("pot").transaction(function(pot){return pot+500;});
+        fbmain.child("games").child(block).child("scores").child(name).transaction(function(userscore){
+        if(userscore==null){
+            userscore={score:0,rundata:"",name:humanName};
+        }
+        return userscore;
+    });
+
+
+    /*
         fbmain.transaction(function(maindata){
         if(maindata==null){
             return maindata;
@@ -47,7 +57,7 @@ function payUser(name, gameid){
             maindata["games"][gameid]["scores"][name]={score:0, rundata:"",name:maindata["urls"][name]["name"]};
             return maindata;
         }
-    });
+    });*/
 }
 
 function getPrizes(pot){
