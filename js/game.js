@@ -113,6 +113,7 @@ function restart(){
     stopped=false;
     loadShadows(block);
     shadowChars=[];
+    frame=0;
     for(var i =0;i<shadows.length;i++){
         if(shadows[i][0]!=""){
             var shadowChar = new Char();
@@ -131,7 +132,6 @@ function restart(){
             shadowChar.y=p.y;
             shadowChar.lastplat=platforms[0];
             shadowChars.push(shadowChar);
-            console.log(shadowChar);
             console.log(shadows[i]);
         }
     }
@@ -315,14 +315,16 @@ function landedChar(character){
 }
 
 function gameOver(){
+    if(!stopped){
+        var saveStr = "";
+        for(var i =0; i< saveStuff.length;i++){
+            saveStr+=saveStuff[i];
+            saveStr+="|";
+        }
+        endGame(score,saveStr);
+    }
     stopped=true;
 
-    var saveStr = "";
-    for(var i =0; i< saveStuff.length;i++){
-        saveStr+=saveStuff[i];
-        saveStr+="|";
-    }
-    endGame(score,saveStr);
     $("#highscore").slideDown();
 }
 

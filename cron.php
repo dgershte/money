@@ -16,13 +16,25 @@ for( $i = 0; $i <= $strlen; $i++ ) {
     $num += ord($char);
 }
 echo $num;
-$url = "https://moneymoney.firebaseio.com/games.json";
-$data = '{"'.$num.'": {"seed":"'.$num.'","pot":0,"over":false},"currblock":"'.$num.'"}';
+
+$url = "https://moneymoney.firebaseio.com/games/".$num.".json";
 curl_close($ch);
 $ch = curl_init();
 curl_setopt($ch,CURLOPT_URL,$url);
-curl_setopt($ch,CURLOPT_CUSTOMREQUEST,'PATCH');
+curl_setopt($ch,CURLOPT_CUSTOMREQUEST,'GET');
 curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
 curl_setopt($ch,CURLOPT_POSTFIELDS,$data);
-curl_exec($ch);
+$result = curl_exec($ch);
+
+if($result=="null"){
+    $url = "https://moneymoney.firebaseio.com/games.json";
+    $data = '{"'.$num.'": {"seed":"'.$num.'","pot":0,"over":false},"currblock":"'.$num.'"}';
+    curl_close($ch);
+    $ch = curl_init();
+    curl_setopt($ch,CURLOPT_URL,$url);
+    curl_setopt($ch,CURLOPT_CUSTOMREQUEST,'PATCH');
+    curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+    curl_setopt($ch,CURLOPT_POSTFIELDS,$data);
+    curl_exec($ch);
+}
 ?>

@@ -6,8 +6,8 @@ window.addEventListener('load', function() {
 function loadBlockChain(){
     getCurrentBlock();
     //loads seed too
-    console.log(userid);
     getCoins(userid);
+    getHumanName(userid);
 }
 
 loadBlockChain();

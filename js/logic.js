@@ -17,7 +17,7 @@ function saveRun(name, gameid, newscore, rundata){
         if(newscore>game["score"]){
             return {"score":newscore,rundata:rundata,name:humanName};
         }
-        return game;
+        return;
     });
 }
 
@@ -31,14 +31,15 @@ function payUser(name, gameid){
         if(coins>500){
             return coins-500;
         }
-        return coins;
+        return;
         });
         fbmain.child("games").child(block).child("pot").transaction(function(pot){return pot+500;});
         fbmain.child("games").child(block).child("scores").child(name).transaction(function(userscore){
         if(userscore==null){
             userscore={score:0,rundata:"",name:humanName};
+            return userscore;
         }
-        return userscore;
+        return;
     });
 }
 
@@ -92,15 +93,16 @@ function payWinners(gameid){
     });
 }*/
 function getHumanName(userid){
-    fbmain.child("urls").child(userid).child("/name").on('value',function(data){
+    fbmain.child("urls").child(userid).child("name").on('value',function(data){
         if(data.val()!=null){
+            console.log("human name "+data.val());
             updateHumanName(data.val());
         }
     });
 }
 
 function getCoins(userid){
-    fbmain.child("urls").child(userid).child("/coins").on('value',function(data){
+    fbmain.child("urls").child(userid).child("coins").on('value',function(data){
         if(data.val()!=null){
             updateCoins(data.val());
         }
