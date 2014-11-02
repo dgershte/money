@@ -25,11 +25,31 @@ function getHighscores(gameid){
         console.log(data.val())
         var list = $("#hslist");
         list.empty();
-        console.log("data");
-        var i = 1;
+
+        var scoreObjs = new Array();
         for(var property in obj){
-            list.append('<li><img class="place" src="images/place'+i+'.png"/>'+obj[property].name+'<span>'+obj[property].score+'<img src="images/bitcoin.png"/></span></li>');
+            scoreObjs.push({name:obj[property].name,score:obj[property].score});
+        }
+
+        scoreObjs.sort(function(a,b){
+            if(a["score"]<b["score"]){
+                return 1;
+            } else if(a["score"]==b["score"]){
+                return 0;
+            } else return -1;
+        });
+        /*
+        var pot = maindata["games"][gameid]["pot"];
+        var prizes = getPrizes(pot);
+        var i = 0;
+        while(prizes.length>0){
+            var prize = prizes.shift();
+            maindata["users"][scoreObjs[i]["name"]]["coins"]+=prize;
             i++;
+        }*/
+
+        for(var i =0;i<scoreObjs.length;i++){
+            list.append('<li>'+scoreObjs[i].name+'<span>'+scoreObjs[i].score+'<img src="images/bitcoin.png"/></span></li>');
         }
     });
 }
