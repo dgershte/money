@@ -249,8 +249,8 @@ function createPlatforms(){
         var platform = new Platform();
         platform.x=Math.round(677+random()*110+60);
         platform.y=Math.round(random()*160-80+lastplat.y);
-        platform.y=platform.y>350?350:platform.y;
-        platform.y=platform.y<150?150:platform.y;
+        platform.y=platform.y>320?320:platform.y;
+        platform.y=platform.y<130?130:platform.y;
         platform.width=Math.round(random()*6+2)*60;
         platforms.push(platform);
     }
@@ -389,9 +389,8 @@ function drawPlatforms(){
         var platform = platforms[i];
         context.drawImage(leftcap,Math.round(platform.x-9), platform.y);
         var jj=0;
-        var platformIndex = Math.random() * (2 - 0);
-        for(var j = 0; j < platform.width; j+=60) {
-            context.drawImage(platformimg[platformIndex],Math.round(platform.x+k*59),platform.y);
+        for(var j = 0, k=0; j < platform.width; j+=60,k++) {
+            context.drawImage(platformimg[k%3],Math.round(platform.x+k*59),platform.y);
             jj++;
         }
         context.drawImage(leftcap,platform.x,platform.y);
