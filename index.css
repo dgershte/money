@@ -45,11 +45,13 @@ body {
 }
 
 input {
-padding: 10px;
+	font-family: 'pipe_dreamregular';
+    font-size:31px;
+    padding: 10px;
 margin: 0 auto 10px auto;
 border-radius: 5px;
 border: 2px solid grey;
-width: 250px;
+width: 270px;
 display:block;
 text-align:center;
 }
@@ -82,10 +84,11 @@ h3 {
 section {
     display:none;
     text-align:center;
-    height:100%;
-    position:absolute;
+    height:375px;
+    position:relative;
+    margin:auto;
     top:0;
-    width:100%;
+    width:667px;
 }
 
 
