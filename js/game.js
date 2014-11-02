@@ -51,6 +51,8 @@ var rightcap = new Image();
 rightcap.src = 'images/platformright.png';
 var platformimg = new Array();
 var charimg = new Array();
+var score = 0;
+var stopped=false;
 
 for(var i = 1; i < 4; i++) {
     var pimg = new Image();
@@ -101,6 +103,8 @@ function restart(){
     timer = setInterval(enterframe,30);
     mousehit=false;
     demoindex=0;
+    score=0;
+    stopped=false;
 }
 
 var mouse = false;
@@ -125,6 +129,9 @@ var demoindex = 0;
 function enterframe(){
     canvas = document.getElementById('overlay');
     if(canvas==null){
+        return;
+    }
+    if(stopped){
         return;
     }
     frame++;
@@ -164,6 +171,7 @@ function enterframe(){
     context.clearRect(0,0,677,375);
     drawPlatforms();
     drawChar(character);
+    score+=20;
     if(frame>300 && frame<302){
         console.log(saveStuff);
     }
@@ -273,7 +281,16 @@ function landedChar(character){
 
 function gameOver(){
     //$("#game").hide();
-    $("#highscore").slideDown(); 
+    stopped=true;
+
+    $("#highscore").slideDown();
+    var saveStr = "";
+    for(var i =0; i< saveStr.length;i++){
+        saveStr+=saveStuff[i];
+        saveStr+="|";
+    }
+    saveStr=saveStr.substr(0,saveStr.length-1);
+    endGame(score,saveStr);
 }
 function droppedChar(character){
     if(character.lastplat!=null){

@@ -24,3 +24,17 @@
 [02-Nov-2014 01:03:11 America/Denver] PHP Parse error:  syntax error, unexpected '}' in /home/lightbot/public_html/cuckoohash/checkblock.php on line 15
 [02-Nov-2014 01:04:44 America/Denver] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/lightbot/public_html/cuckoohash/checkblock.php on line 14
 [02-Nov-2014 01:22:35 America/Denver] PHP Parse error:  syntax error, unexpected ''"}'' (T_CONSTANT_ENCAPSED_STRING) in /home/lightbot/public_html/cuckoohash/received.php on line 32
+[02-Nov-2014 02:46:40 America/Denver] PHP Fatal error:  Call to undefined function http_get() in /home/lightbot/public_html/cuckoohash/play.php on line 37
+[02-Nov-2014 02:47:29 America/Denver] PHP Fatal error:  Call to undefined function http_get() in /home/lightbot/public_html/cuckoohash/play.php on line 37
+[02-Nov-2014 02:47:30 America/Denver] PHP Fatal error:  Call to undefined function http_get() in /home/lightbot/public_html/cuckoohash/play.php on line 37
+[02-Nov-2014 02:47:30 America/Denver] PHP Fatal error:  Call to undefined function http_get() in /home/lightbot/public_html/cuckoohash/play.php on line 37
+[02-Nov-2014 02:47:30 America/Denver] PHP Fatal error:  Call to undefined function http_get() in /home/lightbot/public_html/cuckoohash/play.php on line 37
+[02-Nov-2014 02:47:34 America/Denver] PHP Fatal error:  Call to undefined function http_get() in /home/lightbot/public_html/cuckoohash/play.php on line 37
+[02-Nov-2014 02:47:58 America/Denver] PHP Fatal error:  Call to undefined function http_get() in /home/lightbot/public_html/cuckoohash/play.php on line 37
+[02-Nov-2014 02:48:56 America/Denver] PHP Fatal error:  Call to undefined function http_get() in /home/lightbot/public_html/cuckoohash/play.php on line 37
+[02-Nov-2014 02:49:29 America/Denver] PHP Fatal error:  Call to undefined function http_get() in /home/lightbot/public_html/cuckoohash/play.php on line 37
+[02-Nov-2014 02:49:56 America/Denver] PHP Fatal error:  Call to undefined function http_get() in /home/lightbot/public_html/cuckoohash/play.php on line 36
+[02-Nov-2014 02:51:45 America/Denver] PHP Fatal error:  Call to undefined function http_get() in /home/lightbot/public_html/cuckoohash/play.php on line 36
+[02-Nov-2014 02:52:50 America/Denver] PHP Fatal error:  Call to undefined function http_get() in /home/lightbot/public_html/cuckoohash/play.php on line 36
+[02-Nov-2014 02:52:55 America/Denver] PHP Fatal error:  Call to undefined function http_get() in /home/lightbot/public_html/cuckoohash/play.php on line 36
+[02-Nov-2014 02:53:00 America/Denver] PHP Fatal error:  Call to undefined function http_get() in /home/lightbot/public_html/cuckoohash/play.php on line 36

@@ -93,6 +93,10 @@ function draw(delta) {
     ctx.restore();
 }
 
+function endGame(score,rundata){
+    saveRun(userid, block, score, rundata);
+}
+
 $(document).ready( function() {
     getHighscores(1);
     $("#viewhsbtn").click( function() {
