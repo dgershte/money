@@ -41,6 +41,7 @@ function payUser(name, gameid){
         }
         return;
     });
+    getCoins(userid);
 }
 
 function getPrizes(pot){
@@ -100,9 +101,13 @@ function getHumanName(userid){
         }
     });
 }
+function updateCoinDiv(){
+    $("#bitcoins").html(coins);
+}
+
 
 function getCoins(userid){
-    fbmain.child("urls").child(userid).child("coins").on('value',function(data){
+    fbmain.child("urls").child(userid).child("coins").once('value',function(data){
         if(data.val()!=null){
             updateCoins(data.val());
         }
@@ -110,7 +115,7 @@ function getCoins(userid){
 }
 
 function getCurrentBlock(){
-    fbmain.child("games").child("currblock").on('value',function(data){
+    fbmain.child("games").child("currblock").once('value',function(data){
         if(data.val()!=null){
             updateBlock(data.val());
         }
@@ -118,7 +123,7 @@ function getCurrentBlock(){
 }
 
 function getSeedForBlock(block){
-    fbmain.child("games").child(block).child("seed").on('value',function(data){
+    fbmain.child("games").child(block).child("seed").once('value',function(data){
         if(data.val()!=null){
             updateSeed(data.val());
         }
@@ -127,7 +132,7 @@ function getSeedForBlock(block){
 }
 
 function loadShadows(block){
-    fbmain.child("games").child(block).child("scores").on('value',function(data){
+    fbmain.child("games").child(block).child("scores").once('value',function(data){
         shadows = []
         for(var property in data.val()){
             var runs = data.val()[property].rundata;
@@ -140,7 +145,6 @@ function loadShadows(block){
 
 
 //get the number of coins
-//getCoins("Danny");
 
 //example:
 //user pays, user can then save a run
@@ -162,6 +166,7 @@ function updateHumanName(val){
 
 function updateCoins(val){
     coins = val;
+    updateCoinDiv();
 }
 function updateBlock(val){
     block = val;
