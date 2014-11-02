@@ -10,21 +10,20 @@
     </head>
     <body>
         <section id="highscore">
-            <div id="hsback">back</div>
+            <div class="btn" id="hsback">back</div>
             <div id="hstitle">HIGHSCORES</div>
             <ul id="hslist">
             </ul>
             <div class="btn" id="playagain">Play Again</div>
         </section>
         <section id="play">
-            <div id="hsback"></div>
             <div id="gametitle"/>BitGame</div>
             <a class="btn" id="playbtn">Play</a>
             <a class="btn" id="cashoutbtn">Cash Out</a>
             <a class="btn" id="viewhsbtn">View Highscores</a>
             </section>
         <section id="game">
-            <div id="gamebackbtn" class="yellowfont">back</div>
+            <div class="btn" id="gamebackbtn">back</div>
             <div id="score" class="yellowfont">2394</div>
             <canvas id="bg" width="667px" height="375"></canvas>
             <canvas id="overlay" width="667px" height="375"></canvas>
