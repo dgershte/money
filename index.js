@@ -28,7 +28,7 @@ function getHighscores(gameid){
         console.log("data");
         var i = 1;
         for(var property in obj){
-            list.append('<li><img class="place" src="images/place'+i+'.png"/>'+obj[property].name+'<span>'+obj[property].score+'<img src="images/bitcoin.png"/></span></li>');
+            list.append('<li><img class="place" src="images/place'+i+'.png"/>'+obj[property].name+'<span>'+obj[property].score+'<span></li>');
             i++;
         }
     });
