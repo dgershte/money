@@ -82,6 +82,8 @@ function draw(delta) {
     var numImages = Math.ceil(cvs.width / img.width) + 1;
     var xpos = totalSeconds * vx % img.width;
 
+//    ctx.canvas.width  = window.innerWidth;
+//    ctx.canvas.height = window.innerHeight;
     ctx.save();
     ctx.translate(-xpos, 0);
     for (var i = 0; i < numImages; i++) {
@@ -105,6 +107,7 @@ $(document).ready( function() {
         $("#game").show();
         payUser(userid,block);
         startStop();
+        restart();
     });
     $("#gamebackbtn").click( function() {
         $("#game").hide();

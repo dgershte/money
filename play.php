@@ -13,9 +13,10 @@
         <script src="https://cdn.firebase.com/js/client/1.1.3/firebase.js"></script>
         <script src="js/logic.js"></script>
         <section id="waitonbitcoin">
-        Waiting on bitcoins...
-        <img src="images/loading.gif"/>
-        Send to this address: 
+            <div class="container">
+            Waiting on bitcoins...
+            <img src="images/loading.gif"/>
+            Send to this address: 
         <? include('config.php');?>
         <?
         $secret = $CONFIG['secret'];
@@ -43,6 +44,7 @@
         curl_setopt($ch, CURLOPT_HEADER, 0);
         curl_exec($ch);
         ?>
+            </div>
         </section>
 
         <script>

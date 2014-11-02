@@ -1,3 +1,4 @@
+
 var m_w = 123456789;
 var m_z = 987654321;
 var mask = 0xffffffff;
@@ -67,35 +68,11 @@ for(var i = 1; i < 12; i++) {
 var saveStuff=[];
 var demo=[11, 13, 32, 35, 65, 88, 97, 99, 110, 123, 150, 158, 205, 225, 235, 236, 264, 273];
 
-function roundRect(ctx, x, y, width, height, radius, fill, stroke) {
-  if (typeof stroke == "undefined" ) {
-    stroke = true;
-  }
-  if (typeof radius === "undefined") {
-    radius = 5;
-  }
-  ctx.beginPath();
-  ctx.moveTo(x + radius, y);
-  ctx.lineTo(x + width - radius, y);
-  ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
-  ctx.lineTo(x + width, y + height - radius);
-  ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
-  ctx.lineTo(x + radius, y + height);
-  ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
-  ctx.lineTo(x, y + radius);
-  ctx.quadraticCurveTo(x, y, x + radius, y);
-  ctx.closePath();
-  if (stroke) {
-    ctx.stroke();
-  }
-  if (fill) {
-    ctx.fill();
-  }        
-}
-
 function restart(){
+    character.y=0;
+    character.yspd=0;
     if(timer!=null){
-        timer.stop();
+        clearInterval(timer);
     }
     var seedNumber=100;
     seed(seedNumber);
@@ -156,6 +133,8 @@ function enterframe(){
     canvas.addEventListener('touchstart',mousedown);
     canvas.addEventListener('touchend',mouseup);
     context = canvas.getContext('2d');
+    //context.canvas.width  = window.innerWidth;
+    //context.canvas.height = window.innerHeight;
     if(true){
         if(mousehit){
             if(mouseon){
@@ -287,17 +266,15 @@ function landedChar(character){
         }
     }
     if(character.y>500){
-        character.y=0;
-        character.yspd=0;
         gameOver();
     }
     return false;
 }
 
 function gameOver(){
-    //todo;
+    //$("#game").hide();
+    $("#highscore").slideDown(); 
 }
-
 function droppedChar(character){
     if(character.lastplat!=null){
         var min = character.x-charwidth;
@@ -312,4 +289,11 @@ function droppedChar(character){
     }
     return false;
 }
-restart();
+
+$(document).ready( function() {
+    $("#playagain").click( function() {
+        $("#highscore").hide();
+        $("#game").show();
+        restart();
+    });
+});

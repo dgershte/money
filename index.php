@@ -14,10 +14,11 @@
             <div id="hstitle">HIGHSCORES</div>
             <ul id="hslist">
             </ul>
+            <div class="btn" id="playagain">Play Again</div>
         </section>
         <section id="play">
             <div id="hsback"></div>
-            <img src="images/title.png" id="gametitle"/>
+            <div id="gametitle"/>BitGame</div>
             <a class="btn" id="playbtn">Play</a>
             <a class="btn" id="cashoutbtn">Cash Out</a>
             <a class="btn" id="viewhsbtn">View Highscores</a>
