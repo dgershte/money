@@ -8,9 +8,10 @@
         <div id="container"> 
         <section id="screen1">
             <div class="container">
-            <input placeholder="enter user name" id="namebox"></input>
+            <input placeholder="enter user name" id="namebox" style="margin-top: 70px;"></input>
             <div onclick="createUser()" id="createuserbtn" class="btn">Create New User</div>
             </div>
+            <img src="images/dog.png" style="position: absolute;bottom: 9px;width: 100px;left: 269px;"/>
         </section>
         </div>
         <script src="js/jquery.js"></script>

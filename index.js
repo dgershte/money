@@ -26,8 +26,10 @@ function getHighscores(gameid){
         var list = $("#hslist");
         list.empty();
         console.log("data");
+        var i = 1;
         for(var property in obj){
-            list.append('<li>'+obj[property].name+'<span>'+obj[property].score+'<img src="images/bitcoin.png"/></span></li>');
+            list.append('<li><img class="place" src="images/place'+i+'.png"/>'+obj[property].name+'<span>'+obj[property].score+'<img src="images/bitcoin.png"/></span></li>');
+            i++;
         }
     });
 }
