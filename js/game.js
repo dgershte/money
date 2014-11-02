@@ -52,6 +52,7 @@ var rightcap = new Image();
 rightcap.src = 'images/platformright.png';
 var platformimg = new Array();
 var charimg = new Array();
+var shadedcharimg = new Array();
 var score = 0;
 var stopped=false;
 
@@ -66,6 +67,12 @@ for(var i = 1; i < 12; i++) {
     if(i > 9) cimg.src = 'images/dog00'+i+'.png';
     else cimg.src = 'images/dog000'+i+'.png';
     charimg.push(cimg);
+}
+for(var i = 1; i < 12; i++) {
+    var cimg = new Image();
+    if(i > 9) cimg.src = 'images/sdog00'+i+'.png';
+    else cimg.src = 'images/sdog000'+i+'.png';
+    shadedcharimg.push(cimg);
 }
 
 var saveStuff=[];
@@ -205,10 +212,10 @@ function enterframe(){
     context.clearRect(0,0,677,375);
     drawPlatforms();
     for(var i=0;i<shadowChars.length;i++){
-        drawChar(shadowChars[i]);
+        drawChar(shadowChars[i],true);
         //console.log(shadowChars[i]);
     }
-    drawChar(character);
+    drawChar(character,false);
     scorestr.html(score);
     score+=20+Math.ceil(10*platformspd);
 }
@@ -272,12 +279,16 @@ function updatePlatforms(){
     platformspd+=.01;
 }
 
-function drawChar(character){
+function drawChar(character,shaded){
     var index = character.frame%9;
     if(character.jump) {
         index = 4;
     }
-    context.drawImage(charimg[index],character.x-charwidth,character.y-48);
+    if(shaded){
+        context.drawImage(shadedcharimg[index],character.x-charwidth,character.y-48);
+    } else {
+        context.drawImage(charimg[index],character.x-charwidth,character.y-48);
+    }
     character.frame++;
 }
 
@@ -322,6 +333,7 @@ function gameOver(){
             saveStr+="|";
         }
         endGame(score,saveStr);
+        getHighscores(block);
     }
     stopped=true;
 

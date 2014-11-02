@@ -36,5 +36,7 @@ if($result=="null"){
     curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
     curl_setopt($ch,CURLOPT_POSTFIELDS,$data);
     curl_exec($ch);
+} else {
+    echo "\r\nno update";
 }
 ?>
