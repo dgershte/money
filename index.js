@@ -1,9 +1,6 @@
-var users = new Array();
-
-function User(userid,place) {
-    this.userid = userid;
-    this.place = place;
-}
+window.addEventListener('load', function() {
+        FastClick.attach(document.body);
+}, false);
 
 function addScore(user) {
     var place = user.place;
@@ -26,11 +23,6 @@ function pushHighscore(data){
         console.log(obj[property].score);
     }
 }
-
-window.requestAnimationFrame = window.requestAnimationFrame
-        || window.webkitRequestAnimationFrame
-        || window.mozRequestAnimationFrame
-        || function(callback) { window.setTimeout(callback, 1000 / 60); };
 
 var canvas = document.getElementById('bg');
 var context = canvas.getContext('2d');
@@ -59,11 +51,12 @@ function startStop() {
 }
 
 function loop() {
+    totalSeconds+=1;
     draw(30);
 }
 
 function draw(delta) {
-    var vx = 100; // the background scrolls with a speed of 100 pixels/sec
+    var vx = 5; // the background scrolls with a speed of 100 pixels/sec
     var numImages = Math.ceil(canvas.width / img.width) + 1;
     var xpos = totalSeconds * vx % img.width;
 
