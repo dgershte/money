@@ -14,9 +14,8 @@
         <script src="js/logic.js"></script>
         <section id="waitonbitcoin">
             <div class="container">
-            Waiting on bitcoins...
-            <img src="images/loading.gif"/>
-            Send to this address: 
+                <h3>Waiting on bitcoins...</h3>
+                <h3>Send to this address:</h3>
         <? include('config.php');?>
         <?
         $secret = $CONFIG['secret'];
@@ -34,7 +33,6 @@
 
         $object = json_decode($response);
 
-        echo $object->input_address;
 
         // testing stuff below to auto allow bitcoin
         $ch = curl_init();
@@ -42,18 +40,26 @@
         // set URL and other appropriate options
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_HEADER, 0);
-        curl_exec($ch);
+        //curl_exec($ch);
         ?>
+            </div>
+            <img src="https://api.qrserver.com/v1/create-qr-code/?data=<? echo $object->input_address ?>&amp;size=100x100" alt="" title="" />
+            <div id="bitcoinaddr">
+            <? echo $object->input_address ?>
             </div>
         </section>
 
         <script>
+
+
         var fb = new Firebase("https://moneymoney.firebaseio.com/urls/<? echo $_GET['id']?>/coins");
         fb.on('value',function(data){
             if(data.val()!=null){
+        //        window.location="index.php";
                 window.location="index.php?id=<?echo $_GET['id']?>";
             }
         });
+        
         </script>
     </body>
 </html>

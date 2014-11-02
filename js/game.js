@@ -280,7 +280,6 @@ function landedChar(character){
 }
 
 function gameOver(){
-    //$("#game").hide();
     stopped=true;
 
     $("#highscore").slideDown();
@@ -291,7 +290,10 @@ function gameOver(){
     }
     saveStr=saveStr.substr(0,saveStr.length-1);
     endGame(score,saveStr);
+    $("#game").hide();
+    $("#highscore").show(); 
 }
+
 function droppedChar(character){
     if(character.lastplat!=null){
         var min = character.x-charwidth;
