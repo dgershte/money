@@ -1,5 +1,3 @@
-var firebase  = new Firebase("https://moneymoney.firebaseio.com/");
-
 function receivedData(response){
     console.log("receivedData");
 }
@@ -99,7 +97,8 @@ function payWinners(gameid){
         }
     });
 }*/
-function getHumanName(userid){
+function getHumanName(){
+var fbmain = new Firebase("https://moneymoney.firebaseio.com/");
     fbmain.child("urls").child(userid).child("name").on('value',function(data){
         if(data.val()!=null){
             console.log("human name "+data.val());
@@ -112,7 +111,8 @@ function updateCoinDiv(){
 }
 
 
-function getCoins(userid){
+function getCoins(){
+    var fbmain = new Firebase("https://moneymoney.firebaseio.com/");
     fbmain.child("urls").child(userid).child("coins").once('value',function(data){
         if(data.val()!=null){
             updateCoins(data.val());
@@ -121,23 +121,24 @@ function getCoins(userid){
 }
 
 function getCurrentBlock(){
-    fbmain.child("games").child("currblock").once('value',function(data){
-        if(data.val()!=null){
-            updateBlock(data.val());
-        }
-    });
+var fbmain = new Firebase("https://moneymoney.firebaseio.com/");
+        fbmain.child("games").child("currblock").once('value',function(data){
+            if(data.val()!=null){
+                updateBlock(data.val());
+            }
+        });
 }
 
-function getSeedForBlock(block){
+function getSeedForBlock(){
     fbmain.child("games").child(block).child("seed").once('value',function(data){
         if(data.val()!=null){
             updateSeed(data.val());
         }
     });
-    getHighscores(block);
+    getHighscores();
 }
 
-function loadShadows(block){
+function loadShadows(){
     fbmain.child("games").child(block).child("scores").once('value',function(data){
         shadows = []
         for(var property in data.val()){
@@ -176,7 +177,7 @@ function updateCoins(val){
 }
 function updateBlock(val){
     block = val;
-    getSeedForBlock(block);
+    getSeedForBlock();
 }
 
 function updateSeed(val){
