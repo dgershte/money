@@ -72,8 +72,9 @@ padding: 0 20px;
 border: 2px solid black;
 border-radius: 5px;
 margin: 20px;
-background-color: rgba(0,0,0,0.1);
+background-color: rgba(0,0,0,0.3);
 text-align: left;
+color: white;
 }
 
 li {
@@ -129,7 +130,7 @@ section {
     float:left;
 }
 
-.username {
+.pot {
     float:left;
     margin-top: 5px;
     margin-left: 15px;
@@ -199,6 +200,8 @@ canvas {
 
 #hstitle {
     padding:20px;
+    color: rgb(250, 234,56);
+    text-shadow: -4px 0 rgb(202, 140, 17), 0 1px rgb(158,82,12), 1px 0 rgb(158,82,12), 0 -1px rgb(158,82,12);
 }
 
 #gametitle {
