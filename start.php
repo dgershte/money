@@ -1,0 +1,25 @@
+<script src="js/jquery.js"></script>
+<script src="https://cdn.firebase.com/js/client/1.1.3/firebase.js"></script>
+<script src="js/logic.js"></script>
+<input id="namebox" style="width:300px;"></input>
+<div onclick="createUser()" style="width:100px; height:20px">Create</div>
+<script>
+    function createUser(){
+
+var randomString="<?
+function generateRandomString($length = 10) {
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyz';
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[rand(0, strlen($characters) - 1)];
+    }
+    return $randomString;
+}
+echo generateRandomString(15);
+?>";
+        var name = $("#namebox").val();
+        var root = new Firebase('https://moneymoney.firebaseio.com/urls/'+randomString);
+        root.set({name:name});
+        window.location="play.php?id="+randomString;
+    }
+</script>

@@ -1,12 +1,12 @@
 <script src="js/jquery.js"></script>
 <script src="https://cdn.firebase.com/js/client/1.1.3/firebase.js"></script>
 <script src="js/logic.js"></script>
-<script>
+Waiting on bitcoins...
+Send to this address: 
 <? include('config.php');?>
-var loc =
-"<?
+<?
 $secret = $CONFIG['secret'];
-$name = $_GET['name'];
+$name = $_GET['id'];
 
 $my_address = '1FPS1KvnTeTzMsekAFBCNy2TsgEfckgK3x';
 
@@ -20,6 +20,23 @@ $response = file_get_contents($root_url . '?' . $parameters);
 
 $object = json_decode($response);
 
-echo $object->input_address; ?>";
-    createUser("<? echo $_GET['name']?>",loc);
+echo $object->input_address;
+
+// testing stuff below to auto allow bitcoin
+$ch = curl_init();
+$url='http://cuckoohash.com/received.php?secret='.$secret.'&test=false&value=100000&name='.$name;
+// set URL and other appropriate options
+curl_setopt($ch, CURLOPT_URL, $url);
+curl_setopt($ch, CURLOPT_HEADER, 0);
+//curl_exec($ch);
+?>
+
+
+<script>
+var fb = new Firebase("https://moneymoney.firebaseio.com/urls/<? echo $_GET['id']?>/coins");
+fb.on('value',function(data){
+    if(data.val()!=null){
+        window.location="index.php";
+    }
+});
 </script>
