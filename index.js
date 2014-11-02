@@ -5,7 +5,6 @@ function User(userid,place) {
     this.place = place;
 }
 
-
 function addScore(user) {
     var place = user.place;
     var userid = user.userid;
@@ -47,32 +46,23 @@ function imageLoaded() {
 }
 
 var lastFrameTime = 0;
+var timer = null;
 
 function startStop() {
     looping = !looping;
 
     if (looping) {
-        lastFrameTime = Date.now();
-        requestAnimationFrame(loop);
+        timer = setInterval(loop,30);
+    } else {
+        timer.stop();
     }
 }
 
 function loop() {
-    if (!looping) {
-        return;
-    }
-
-    requestAnimationFrame(loop);
-
-    var now = Date.now();
-    var deltaSeconds = (now - lastFrameTime) / 1000;
-    lastFrameTime = now;
-    draw(deltaSeconds);
+    draw(30);
 }
 
 function draw(delta) {
-    totalSeconds += delta;
-
     var vx = 100; // the background scrolls with a speed of 100 pixels/sec
     var numImages = Math.ceil(canvas.width / img.width) + 1;
     var xpos = totalSeconds * vx % img.width;
