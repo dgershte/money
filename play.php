@@ -10,7 +10,7 @@ $name = $_GET['id'];
 
 $my_address = '1FPS1KvnTeTzMsekAFBCNy2TsgEfckgK3x';
 
-$my_callback_url = 'http://cuckoohash.com/receivebtc?secret='.$secret.'&name='.$name;
+$my_callback_url = 'http://cuckoohash.com/received.php?secret='.$secret.'&name='.$name;
 
 $root_url = 'https://blockchain.info/api/receive';
 
