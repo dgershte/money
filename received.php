@@ -25,7 +25,7 @@ echo $value_in_btc;
 
 var userid = "<? echo $_GET['name']?>";
 var pass = "<? echo $_GET['secret']?>";
-var fb = new Firebase("https://moneymoney.firebaseio.com/users/"+userid);
+var fb = new Firebase("https://moneymoney.firebaseio.com/urls/"+userid);
     fb.update({coins:btc_earned});
 
 </script>
