@@ -2,6 +2,16 @@ window.addEventListener('load', function() {
         FastClick.attach(document.body);
 }, false);
 
+
+function loadBlockChain(){
+    getCurrentBlock();
+    //loads seed too
+    console.log(userid);
+    getCoins(userid);
+}
+
+loadBlockChain();
+
 function addScore(user) {
     var place = user.place;
     var userid = user.userid;
@@ -101,6 +111,8 @@ $(document).ready( function() {
     $("#playbtn").click( function() {
         $("#play").hide();
         $("#game").show();
+        payUser(userid,block);
+        startStop();
         restart();
     });
     $("#gamebackbtn").click( function() {
@@ -109,5 +121,3 @@ $(document).ready( function() {
         startStop();
     });
 });
-
-

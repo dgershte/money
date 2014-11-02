@@ -56,6 +56,7 @@
         fb.on('value',function(data){
             if(data.val()!=null){
         //        window.location="index.php";
+                window.location="index.php?id=<?echo $_GET['id']?>";
             }
         });
         
