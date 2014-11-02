@@ -6,8 +6,8 @@ window.addEventListener('load', function() {
 function loadBlockChain(){
     getCurrentBlock();
     //loads seed too
-    console.log(userid);
     getCoins(userid);
+    getHumanName(userid);
 }
 
 loadBlockChain();
@@ -20,7 +20,7 @@ function addScore(user) {
 
 
 function getHighscores(gameid){
-    fbmain.child("games").child(gameid).on('child_added', function(data){
+    fbmain.child("games").child(gameid).once('child_added', function(data){
         var obj = data.val();
         console.log(data.val())
         var list = $("#hslist");
