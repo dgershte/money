@@ -68,11 +68,11 @@ a {
 
 ul {
 list-style: none;
-padding: 0 20px;
+padding: 10px 20px;
 border: 2px solid black;
-border-radius: 5px;
-margin: 20px;
-background-color: rgba(0,0,0,0.3);
+border-radius: 20px;
+margin: 0px 20px 10px 20px;
+background-color: rgba(0,0,0,0.7);
 text-align: left;
 color: white;
 }
@@ -135,6 +135,10 @@ section {
     margin-top: 5px;
     margin-left: 15px;
     color: rgb(250, 234,56);
+}
+
+.btc {
+    height:20px;
 }
 
 .username {
@@ -210,8 +214,6 @@ canvas {
 }
 
 #gametitle {
-    padding:20px;
-    width:200px;
     margin:auto;
     pointer-events:none;
 }

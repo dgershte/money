@@ -107,7 +107,7 @@ var fbmain = new Firebase("https://moneymoney.firebaseio.com/");
     });
 }
 function updateCoinDiv(){
-    $("#bitcoins").html(coins);
+    $("#bitcoins").html(""+coins/1000000);
 }
 
 

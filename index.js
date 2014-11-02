@@ -45,7 +45,7 @@ function getHighscores(){
         var pot = prizes;
         for(var i =0;i<scoreObjs.length;i++){
             if(i > 2) return;
-            list.append('<li><img class="place" src="images/place'+(i+1)+'.png"/><div class="pot">'+pot[i]+'BTC</div><div class="userscore"><span class="username">'+scoreObjs[i].name+' </span> '+scoreObjs[i].score+'</div></li>');
+            list.append('<li><img class="place" src="images/place'+(i+1)+'.png"/><div class="pot">'+(pot[i]/1000000)  +'<img class="btc" src="images/BitcoinSign.png"></div><div class="userscore"><span class="username">'+scoreObjs[i].name+' </span> '+scoreObjs[i].score+'</div></li>');
         }
     });
 }
@@ -151,5 +151,5 @@ $(document).ready( function() {
         $("#cashout").hide();
         $("#play").show();
     });
- //   $("#bitcoins").html(coins);
+ //   $("#bitcoins").html(""+coins/1000000);
 });
