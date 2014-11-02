@@ -295,7 +295,7 @@ function gameOver(){
     }
     saveStr=saveStr.substr(0,saveStr.length-1);
     endGame(score,saveStr);
-    $("#highscore").show(); 
+    $("#highscore").slideDown();
 }
 
 function droppedChar(character){
@@ -315,7 +315,7 @@ function droppedChar(character){
 
 $(document).ready( function() {
     $("#playagain").click( function() {
-        $("#highscore").hide();
+        $("#highscore").slideUp();
         restart();
     });
 });

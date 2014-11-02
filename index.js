@@ -104,7 +104,8 @@ $(document).ready( function() {
         $("#highscore").show();
     });
     $("#hsback").click( function() {
-        $("#highscore").hide();
+        $("#highscore").slideUp("slow");
+        $("#game").hide();
         $("#play").show();
     });
     $("#playbtn").click( function() {
