@@ -49,7 +49,7 @@ function getHighscores(gameid){
         }*/
 
         for(var i =0;i<scoreObjs.length;i++){
-            list.append('<li>'+scoreObjs[i].name+'<span>'+scoreObjs[i].score+'<img src="images/bitcoin.png"/></span></li>');
+            list.append('<li><img class="place" src="images/place'+i+'.png"/><span class="username">'+scoreObjs[i].name+'</span><span class="userscore">'+scoreObjs[i].score+'</span></li>');
         }
     });
 }
