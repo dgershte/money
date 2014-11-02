@@ -2,6 +2,7 @@
 var m_w = 123456789;
 var m_z = 987654321;
 var mask = 0xffffffff;
+var scorestr = $("#score");
 
 // Takes any integer
 function seed(i) {
@@ -175,6 +176,7 @@ function enterframe(){
     context.clearRect(0,0,677,375);
     drawPlatforms();
     drawChar(character);
+    scorestr.html(score);
     score+=20+Math.ceil(10*platformspd);
     if(frame>300 && frame<302){
         console.log(saveStuff);
@@ -286,7 +288,6 @@ function landedChar(character){
 function gameOver(){
     stopped=true;
 
-    $("#highscore").slideDown();
     var saveStr = "";
     for(var i =0; i< saveStr.length;i++){
         saveStr+=saveStuff[i];
@@ -295,7 +296,6 @@ function gameOver(){
     saveStr=saveStr.substr(0,saveStr.length-1);
     console.log(saveStr);
     endGame(score,saveStr);
-    $("#game").hide();
     $("#highscore").show(); 
 }
 
@@ -317,7 +317,6 @@ function droppedChar(character){
 $(document).ready( function() {
     $("#playagain").click( function() {
         $("#highscore").hide();
-        $("#game").show();
         restart();
     });
 });

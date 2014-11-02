@@ -24,6 +24,9 @@ body {
     padding:0;
 	font-family: 'pipe_dreamregular';
     font-size:31px;
+    position:absolute;
+    display: table-cell;
+    vertical-align: middle;
 }
 
 .yellowfont {
@@ -121,7 +124,7 @@ canvas {
     padding:20px;
 }
 
-#gamepausebtn {
+#score {
     position:absolute;
     top:0;
     right:0;
@@ -129,9 +132,6 @@ canvas {
 }
 
 #highscore {
-    background-image:url('images/bgplain.png');
-    background-repeat:repeat-x;
-    background-size:auto 100%;
 }
 
 #screen1 {
@@ -159,11 +159,14 @@ canvas {
 }
 
 #hsback {
-    padding:20px;
-    position:absolute;
+padding: 0px;
+position: absolute;
+width: 100px;
+margin-left: 20px;
 }
 
 .btn {
+    cursor:pointer;
     padding:10px;
     margin:20px auto;
     border:2px solid black;
@@ -175,7 +178,18 @@ canvas {
         -khtml-user-select: none; 
         -webkit-user-select: none; 
         -o-user-select: none; 
+    -webkit-transition: 0.15s linear;
+        -moz-transition: 0.15s linear;
+            -o-transition: 0.15s linear;
+                transition: 0.15s linear;
 }
+
+.btn:active {
+
+    -ms-transform: scale(0.975); /* IE 9 */
+        -webkit-transform: scale(0.975); /* Chrome, Safari, Opera */
+            transform: scale(0.975);
+        }
 
 #playbtn, #playagain {
 border:2px solid #82A62F;
@@ -203,7 +217,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fff3c9', end
     text-shadow: -2px 0 rgb(253,208,15), 0 2px rgb(253,208,15), 2px 0 rgb(253,208,15), 0 -2px rgb(253,208,15);
 }
 
-#viewhsbtn {
+#viewhsbtn, #hsback {
 background: #b0d4d4; /* Old browsers */
 background: -moz-linear-gradient(top,  #b0d4d4 0%, #b0d4d4 50%, #8ebec9 51%, #8ebec9 100%); /* FF3.6+ */
 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#b0d4d4), color-stop(50%,#b0d4d4), color-stop(51%,#8ebec9), color-stop(100%,#8ebec9)); /* Chrome,Safari4+ */
@@ -238,7 +252,6 @@ background: -o-linear-gradient(top,  #8ebec9 0%,#8ebec9 49%,#b0d4d4 50%,#b0d4d4 
 background: -ms-linear-gradient(top,  #8ebec9 0%,#8ebec9 49%,#b0d4d4 50%,#b0d4d4 100%); /* IE10+ */
 background: linear-gradient(to bottom,  #8ebec9 0%,#8ebec9 49%,#b0d4d4 50%,#b0d4d4 100%); /* W3C */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8ebec9', endColorstr='#b0d4d4',GradientType=0 ); /* IE6-9 */
-
 }
 
 #cashoutbtn:active, #createuserbtn:active {
