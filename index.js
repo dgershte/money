@@ -29,8 +29,8 @@ window.requestAnimationFrame = window.requestAnimationFrame
         || window.mozRequestAnimationFrame
         || function(callback) { window.setTimeout(callback, 1000 / 60); };
 
-var canvas = document.getElementById('bg');
-var context = canvas.getContext('2d');
+var cvs = document.getElementById('bg');
+var ctx = cvs.getContext('2d');
 var looping = false;
 var totalSeconds = 0;
 
@@ -70,15 +70,15 @@ function draw(delta) {
     totalSeconds += delta;
 
     var vx = 100; // the background scrolls with a speed of 100 pixels/sec
-    var numImages = Math.ceil(canvas.width / img.width) + 1;
+    var numImages = Math.ceil(cvs.width / img.width) + 1;
     var xpos = totalSeconds * vx % img.width;
 
-    context.save();
-    context.translate(-xpos, 0);
+    ctx.save();
+    ctx.translate(-xpos, 0);
     for (var i = 0; i < numImages; i++) {
-        context.drawImage(img, i * img.width, 0);
+        ctx.drawImage(img, i * img.width, 0);
     }
-    context.restore();
+    ctx.restore();
 }
 
 $(document).ready( function() {

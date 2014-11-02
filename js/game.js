@@ -29,6 +29,7 @@ function Char() {
     this.lasty=0;
     this.lastplat=null;
     this.onground=false;
+    this.frame=0;
 }
 
 var grav = 2;
@@ -41,9 +42,56 @@ var gamespd=0;
 var platforms = [];
 var timer = null;
 var charwidth=15;
+var dog = new Image();
+dog.src = 'images/dog0001.png';
+var leftcap = new Image();
+leftcap.src = 'images/platformleft.png';
+var rightcap = new Image();
+rightcap.src = 'images/platformright.png';
+var platformimg = new Array();
+var charimg = new Array();
+
+for(var i = 1; i < 4; i++) {
+    var pimg = new Image();
+    pimg.src = 'images/platform000'+i+'.png';
+    platformimg.push(pimg);
+}
+
+for(var i = 1; i < 12; i++) {
+    var cimg = new Image();
+    if(i > 9) cimg.src = 'images/dog00'+i+'.png';
+    else cimg.src = 'images/dog000'+i+'.png';
+    charimg.push(cimg);
+}
 
 var saveStuff=[];
 var demo=[11, 13, 32, 35, 65, 88, 97, 99, 110, 123, 150, 158, 205, 225, 235, 236, 264, 273];
+
+function roundRect(ctx, x, y, width, height, radius, fill, stroke) {
+  if (typeof stroke == "undefined" ) {
+    stroke = true;
+  }
+  if (typeof radius === "undefined") {
+    radius = 5;
+  }
+  ctx.beginPath();
+  ctx.moveTo(x + radius, y);
+  ctx.lineTo(x + width - radius, y);
+  ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
+  ctx.lineTo(x + width, y + height - radius);
+  ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+  ctx.lineTo(x + radius, y + height);
+  ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
+  ctx.lineTo(x, y + radius);
+  ctx.quadraticCurveTo(x, y, x + radius, y);
+  ctx.closePath();
+  if (stroke) {
+    ctx.stroke();
+  }
+  if (fill) {
+    ctx.fill();
+  }        
+}
 
 function restart(){
     if(timer!=null){
@@ -87,10 +135,12 @@ var frame = 0;
 
 function mousedown(){
     mousehit=true;
+    return false;
 }
 
 function mouseup(){
     mousehit=false;
+    return false;
 }
 
 var demoindex = 0;
@@ -103,6 +153,8 @@ function enterframe(){
     frame++;
     canvas.addEventListener('mousedown',mousedown);
     canvas.addEventListener('mouseup',mouseup);
+    canvas.addEventListener('touchstart',mousedown);
+    canvas.addEventListener('touchend',mouseup);
     context = canvas.getContext('2d');
     if(true){
         if(mousehit){
@@ -142,11 +194,11 @@ function createPlatforms(){
     var lastplat = platforms[platforms.length-1];
     if(lastplat.x+lastplat.width<630 || random()>.98){
         var platform = new Platform();
-        platform.x=Math.round(677+random()*110+30);
+        platform.x=Math.round(677+random()*110+60);
         platform.y=Math.round(random()*160-80+lastplat.y);
         platform.y=platform.y>350?350:platform.y;
         platform.y=platform.y<150?150:platform.y;
-        platform.width=Math.round(random()*6+5)*30;
+        platform.width=Math.round(random()*6+5)*60;
         platforms.push(platform);
     }
 }
@@ -198,18 +250,23 @@ function updatePlatforms(){
 }
 
 function drawChar(character){
-    context.beginPath();
-    context.rect(character.x-charwidth, character.y-50, 20, 50);
-    context.stroke();
+    var index = character.frame%9;
+    if(character.jump) {
+        index = 4;
+    }
+    context.drawImage(charimg[index],character.x-charwidth,character.y-55);
+    character.frame++;
 }
 
 function drawPlatforms(){
     for(var i =0; i<platforms.length;i++){
         var platform = platforms[i];
-        context.beginPath();
-        context.moveTo(platform.x, platform.y);
-        context.lineTo(platform.x+platform.width, platform.y);
-        context.stroke();
+        context.drawImage(leftcap,platform.x-11, platform.y);
+        for(var j = 0,k=0; j < platform.width; j+=60,k++) {
+            context.drawImage(platformimg[k%3],platform.x+k*60,platform.y);
+        }
+        context.drawImage(leftcap,platform.x,platform.y);
+        context.drawImage(rightcap,platform.x+platform.width,platform.y);
     }
 }
 
