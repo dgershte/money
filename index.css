@@ -1,8 +1,14 @@
 @font-face {
-  font-family: 'pipe dream';
-  src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('webfont.woff') format('woff'), /* Modern Browsers */
-       url('pipe_dream.ttf')  format('truetype'), /* Safari, Android, iOS */
+    font-family: 'pipe_dreamregular';
+    src: url('pipe_dream_by_triforce89.eot');
+    src: url('pipe_dream_by_triforce89.eot?#iefix') format('embedded-opentype'),
+         url('pipe_dream_by_triforce89.woff2') format('woff2'),
+         url('pipe_dream_by_triforce89.woff') format('woff'),
+         url('pipe_dream_by_triforce89.ttf') format('truetype'),
+         url('pipe_dream_by_triforce89.svg#pipe_dreamregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
 }
 
 body {
@@ -13,7 +19,8 @@ body {
     //font-family: 'Jura', sans-serif;
     //font-family: 'Fredoka One', cursive;
     //font-family: 'Nunito', sans-serif;
-    font-family: 'pipe dream', sans-serif;
+    //font-family: 'pipe dream', sans-serif;
+	font-family: 'pipe_dreamregular';
     font-size:31px;
 }
 

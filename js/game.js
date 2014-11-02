@@ -59,7 +59,8 @@ for(var i = 1; i < 4; i++) {
 
 for(var i = 1; i < 12; i++) {
     var cimg = new Image();
-    cimg.src = 'images/dog000'+i+'.png';
+    if(i > 9) cimg.src = 'images/dog00'+i+'.png';
+    else cimg.src = 'images/dog000'+i+'.png';
     charimg.push(cimg);
 }
 
