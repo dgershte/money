@@ -43,8 +43,8 @@
         //curl_exec($ch);
         ?>
             </div>
-            <img src="https://api.qrserver.com/v1/create-qr-code/?data=<? echo $object->input_address ?>&amp;size=100x100" alt="" title="" />
-            <div id="bitcoinaddr">
+            <img style="padding:20px" src="https://api.qrserver.com/v1/create-qr-code/?data=<? echo $object->input_address ?>&amp;size=100x100" alt="" title="" />
+            <div id="bitcoinaddr" style="font-size:20px">
             <? echo $object->input_address ?>
             </div>
         </section>
@@ -55,7 +55,6 @@
         var fb = new Firebase("https://moneymoney.firebaseio.com/urls/<? echo $_GET['id']?>/coins");
         fb.on('value',function(data){
             if(data.val()!=null){
-        //        window.location="index.php";
                 window.location="index.php?id=<?echo $_GET['id']?>";
             }
         });
