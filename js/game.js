@@ -114,23 +114,26 @@ function restart(){
     loadShadows(block);
     shadowChars=[];
     for(var i =0;i<shadows.length;i++){
-        var shadowChar = new Char();
-        shadowChar.x=100;
-        shadowChar.lasty=0;
-        shadowChar.y=0;
-        shadowChar.xspd=0;
-        shadowChar.yspd=0;
-        shadowChar.frame=0;
-        shadowChar.jump=false;
-        shadowChar.jumptime=0;
-        shadowChar.lastplat=null;
-        platformtime=0;
-        shadowChar.mouse=false;
-        shadowChar.droppedTime=0;
-        shadowChar.y=p.y;
-        shadowChar.lastplat=platforms[0];
-        shadowChars.push(shadowChar);
-        console.log(shadows[i]);
+        if(shadows[i][0]!=""){
+            var shadowChar = new Char();
+            shadowChar.x=100;
+            shadowChar.lasty=0;
+            shadowChar.y=0;
+            shadowChar.xspd=0;
+            shadowChar.yspd=0;
+            shadowChar.frame=0;
+            shadowChar.jump=false;
+            shadowChar.jumptime=0;
+            shadowChar.lastplat=null;
+            platformtime=0;
+            shadowChar.mouse=false;
+            shadowChar.droppedTime=0;
+            shadowChar.y=p.y;
+            shadowChar.lastplat=platforms[0];
+            shadowChars.push(shadowChar);
+            console.log(shadowChar);
+            console.log(shadows[i]);
+        }
     }
 }
 
@@ -218,7 +221,7 @@ function createPlatforms(){
         platform.y=Math.round(random()*160-80+lastplat.y);
         platform.y=platform.y>350?350:platform.y;
         platform.y=platform.y<150?150:platform.y;
-        platform.width=Math.round(random()*6+5)*60;
+        platform.width=Math.round(random()*6+2)*60;
         platforms.push(platform);
     }
 }
@@ -281,14 +284,14 @@ function drawChar(character){
 function drawPlatforms(){
     for(var i =0; i<platforms.length;i++){
         var platform = platforms[i];
-        context.drawImage(leftcap,platform.x-11, platform.y);
+        context.drawImage(leftcap,Math.round(platform.x-9), platform.y);
         var jj=0;
         for(var j = 0,k=0; j < platform.width; j+=60,k++) {
             context.drawImage(platformimg[k%3],Math.round(platform.x+k*59),platform.y);
             jj++;
         }
         context.drawImage(leftcap,platform.x,platform.y);
-        context.drawImage(rightcap,platform.x+platform.width-jj,platform.y);
+        context.drawImage(rightcap,Math.round(platform.x+platform.width)-jj,platform.y);
     }
 }
 

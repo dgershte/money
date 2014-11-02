@@ -6,12 +6,12 @@ function receivedData(response){
 
 // submit score for game
 function saveRun(name, gameid, newscore, rundata){
-    console.log(gameid + " "+name);
     fbmain.child("games").child(gameid).child("scores").child(name).transaction(function(game){
         console.log(game)
         if(game==null){
-            return game;
+            //return game;
             //return {"score":newscore,rundata:rundata,name:humanName};
+            return {"score":newscore,rundata:rundata,name:humanName};
         }
 
         if(newscore>game["score"]){

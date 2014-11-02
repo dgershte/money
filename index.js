@@ -20,16 +20,16 @@ function addScore(user) {
 
 
 function getHighscores(gameid){
-    var scores = new Firebase("https://moneymoney.firebaseio.com/games/"+gameid);
-    scores.on('child_added', pushHighscore);
-}
-
-function pushHighscore(data){
-    var obj = data.val();
-    var list = $("#hslist");
-    for(var property in obj){
-        list.append('<li>'+obj[property].name+'<span>'+obj[property].score+'<img src="images/bitcoin.png"/></span></li>');
-    }
+    fbmain.child("games").child(gameid).on('child_added', function(data){
+        var obj = data.val();
+        console.log(data.val())
+        var list = $("#hslist");
+        list.empty();
+        console.log("data");
+        for(var property in obj){
+            list.append('<li>'+obj[property].name+'<span>'+obj[property].score+'<img src="images/bitcoin.png"/></span></li>');
+        }
+    });
 }
 
 window.requestAnimationFrame = window.requestAnimationFrame
