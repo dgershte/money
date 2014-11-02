@@ -93,6 +93,18 @@ function payWinners(gameid){
     });
 }
 
+function getCoins(userid){
+    var fb = new Firebase("https://moneymoney.firebaseio.com/users/"+userid+"/coins");
+    fb.on('value',function(data){
+        if(data.val()!=null){
+            updateCoins(data.val());
+        }
+    });
+}
+
+//get the number of coins
+getCoins("Danny");
+
 //example:
 //user pays, user can then save a run
 payUser("Danny",1);
@@ -101,3 +113,18 @@ saveRun("Danny",1,210,"adsdfsdff");
 
 //pay out the winners
 payWinners(1);
+
+coins = 0;
+function updateCoins(val){
+    coins = val;
+    console.log(val);
+}
+
+function createUser(userid,btc_addr){
+    if(userid!=""){
+        var fb = new Firebase("https://moneymoney.firebaseio.com/users/"+userid);
+        fb.set({coins:0,btc:btc_addr});
+    }
+}
+
+
