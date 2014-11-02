@@ -20,6 +20,7 @@ body {
 .yellowfont {
     color: rgb(250, 234,56);
     text-shadow: -1px 0 rgb(158,82,12), 0 1px rgb(158,82,12), 1px 0 rgb(158,82,12), 0 -1px rgb(158,82,12);
+    z-index:2;
 }
 
 input {
@@ -50,6 +51,11 @@ section {
     display:none;
     text-align:center;
     height:100%;
+}
+
+canvas {
+    position:absolute;
+    left:0;
 }
 
 #game {
