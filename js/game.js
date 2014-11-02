@@ -282,7 +282,6 @@ function landedChar(character){
 function gameOver(){
     stopped=true;
 
-    $("#highscore").slideDown();
     var saveStr = "";
     for(var i =0; i< saveStr.length;i++){
         saveStr+=saveStuff[i];
