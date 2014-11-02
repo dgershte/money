@@ -42,7 +42,7 @@ var character = new Char();
 var gamespd=0;
 var platforms = [];
 var timer = null;
-var charwidth=15;
+var charwidth=30;
 var dog = new Image();
 dog.src = 'images/dog0001.png';
 var leftcap = new Image();
@@ -71,6 +71,10 @@ var saveStuff=[];
 var demo=[11, 13, 32, 35, 65, 88, 97, 99, 110, 123, 150, 158, 205, 225, 235, 236, 264, 273];
 
 function restart(){
+    if(context!=null){
+        context.clearRect(0,0,677,375);
+    }
+    platformspd=9;
     character.y=0;
     character.yspd=0;
     if(timer!=null){
@@ -171,7 +175,7 @@ function enterframe(){
     context.clearRect(0,0,677,375);
     drawPlatforms();
     drawChar(character);
-    score+=20;
+    score+=20+Math.ceil(10*platformspd);
     if(frame>300 && frame<302){
         console.log(saveStuff);
     }
@@ -241,7 +245,7 @@ function drawChar(character){
     if(character.jump) {
         index = 4;
     }
-    context.drawImage(charimg[index],character.x-charwidth,character.y-55);
+    context.drawImage(charimg[index],character.x-charwidth,character.y-48);
     character.frame++;
 }
 
@@ -264,7 +268,7 @@ function landedChar(character){
         var max = character.x+charwidth;
         if(min>platform.x && min<platform.x+platform.width||
                 max>platform.x && max<platform.x+platform.width){
-            if(character.lasty<=platform.y && character.y+character.yspd>=platform.y){
+            if(character.lasty<=platform.y+5 && character.y+character.yspd>=platform.y){
                 character.y=platform.y;
                 character.jump=false;
                 character.yspd=0;
