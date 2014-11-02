@@ -83,6 +83,11 @@ function draw(delta) {
     ctx.restore();
 }
 
+
+
+
+
+
 $(document).ready( function() {
     getHighscores(1);
     $("#viewhsbtn").click( function() {

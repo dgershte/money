@@ -272,9 +272,10 @@ function landedChar(character){
 }
 
 function gameOver(){
-    //$("#game").hide();
-    $("#highscore").slideDown(); 
+    $("#game").hide();
+    $("#highscore").show(); 
 }
+
 function droppedChar(character){
     if(character.lastplat!=null){
         var min = character.x-charwidth;
