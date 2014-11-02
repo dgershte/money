@@ -23,7 +23,6 @@
             <a class="btn" id="viewhsbtn">View Highscores</a>
             </section>
         <section id="game">
-            <div class="btn" id="gamebackbtn">back</div>
             <div id="score" class="yellowfont">2394</div>
             <canvas id="bg" width="667px" height="375"></canvas>
             <canvas id="overlay" width="667px" height="375"></canvas>
