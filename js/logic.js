@@ -123,6 +123,16 @@ function getSeedForBlock(block){
     });
 }
 
+function loadShadows(block){
+    fbmain.child("games").child(block).child("scores").on('value',function(data){
+        for(var property in data.val()){
+            var runs = data.val()[property].rundata;
+            console.log(runs);
+        }
+    });
+}
+
+
 //get the number of coins
 //getCoins("Danny");
 

@@ -43,7 +43,7 @@ var character = new Char();
 var gamespd=0;
 var platforms = [];
 var timer = null;
-var charwidth=30;
+var charwidth=37;
 var dog = new Image();
 dog.src = 'images/dog0001.png';
 var leftcap = new Image();
@@ -81,8 +81,7 @@ function restart(){
     if(timer!=null){
         clearInterval(timer);
     }
-    var seedNumber=100;
-    seed(seedNumber);
+    seed(blockSeed);
     platforms = [];
     character.x=100;
     character.lasty=0;
@@ -110,6 +109,7 @@ function restart(){
     demoindex=0;
     score=0;
     stopped=false;
+    loadShadows(block);
 }
 
 var mouse = false;
@@ -145,8 +145,6 @@ function enterframe(){
     canvas.addEventListener('touchstart',mousedown);
     canvas.addEventListener('touchend',mouseup);
     context = canvas.getContext('2d');
-    //context.canvas.width  = window.innerWidth;
-    //context.canvas.height = window.innerHeight;
     if(true){
         if(mousehit){
             if(mouseon){
