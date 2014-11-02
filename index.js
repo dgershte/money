@@ -24,6 +24,11 @@ function pushHighscore(data){
     }
 }
 
+window.requestAnimationFrame = window.requestAnimationFrame
+        || window.webkitRequestAnimationFrame
+        || window.mozRequestAnimationFrame
+        || function(callback) { window.setTimeout(callback, 1000 / 60); };
+
 var canvas = document.getElementById('bg');
 var context = canvas.getContext('2d');
 var looping = false;
@@ -38,25 +43,33 @@ function imageLoaded() {
 }
 
 var lastFrameTime = 0;
-var timer = null;
 
 function startStop() {
     looping = !looping;
 
     if (looping) {
-        timer = setInterval(loop,30);
-    } else {
-        timer.stop();
+        lastFrameTime = Date.now();
+        requestAnimationFrame(loop);
     }
 }
 
 function loop() {
-    totalSeconds+=1;
-    draw(30);
+    if (!looping) {
+        return;
+    }
+
+    requestAnimationFrame(loop);
+
+    var now = Date.now();
+    var deltaSeconds = (now - lastFrameTime) / 1000;
+    lastFrameTime = now;
+    draw(deltaSeconds);
 }
 
 function draw(delta) {
-    var vx = 5; // the background scrolls with a speed of 100 pixels/sec
+    totalSeconds += delta;
+
+    var vx = 100; // the background scrolls with a speed of 100 pixels/sec
     var numImages = Math.ceil(canvas.width / img.width) + 1;
     var xpos = totalSeconds * vx % img.width;
 
