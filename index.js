@@ -6,8 +6,8 @@ window.addEventListener('load', function() {
 function loadBlockChain(){
     getCurrentBlock();
     //loads seed too
-    getCoins(userid);
-    getHumanName(userid);
+    getCoins();
+    getHumanName();
 }
 
 loadBlockChain();
@@ -19,14 +19,14 @@ function addScore(user) {
 }
 
 
-function getHighscores(gameid){
+function getHighscores(){
     var prizes = getPrizes();
     while(prizes.length<3){
         prizes.push(0);
     }
-    fbmain.child("games").child(gameid).child("scores").once('value', function(data){
+    fbmain.child("games").child(block).child("scores").once('value', function(data){
         var obj = data.val();
-        console.log(data.val())
+        //console.log(data.val())
         var list = $("#hslist");
         list.empty();
 
@@ -42,15 +42,6 @@ function getHighscores(gameid){
                 return 0;
             } else return -1;
         });
-        /*
-        var pot = maindata["games"][gameid]["pot"];
-        var prizes = getPrizes(pot);
-        var i = 0;
-        while(prizes.length>0){
-            var prize = prizes.shift();
-            maindata["users"][scoreObjs[i]["name"]]["coins"]+=prize;
-            i++;
-        }*/
         var pot = prizes;
         for(var i =0;i<scoreObjs.length;i++){
             if(i > 2) return;
@@ -148,9 +139,17 @@ $(document).ready( function() {
         $("#play").hide();
         $("#cashout").show();
     });
+    $("#cashoutbtn2").click( function() {
+        $.ajax({
+            url:"send.php?addr="+$("#enterbitcoin").val()+"&id="+userid,
+            success:function(){
+                getCoins();
+            }
+        });
+    });
     $("#cashoutback").click( function() {
         $("#cashout").hide();
         $("#play").show();
     });
-    $("#bitcoins").html(coins);
+ //   $("#bitcoins").html(coins);
 });

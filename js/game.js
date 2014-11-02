@@ -139,7 +139,6 @@ function restart(){
             shadowChar.y=p.y;
             shadowChar.lastplat=platforms[0];
             shadowChars.push(shadowChar);
-            console.log(shadows[i]);
         }
     }
 }
@@ -213,7 +212,6 @@ function enterframe(){
     drawPlatforms();
     for(var i=0;i<shadowChars.length;i++){
         drawChar(shadowChars[i],true);
-        //console.log(shadowChars[i]);
     }
     drawChar(character,false);
     scorestr.html(score);
@@ -359,8 +357,8 @@ function droppedChar(character){
 $(document).ready( function() {
     $("#playagain").click( function() {
         $("#highscore").slideUp();
-        payUser(userid,block);
         if( $("#game").css("display") == "none") $("#game").show();
+        payUser(userid,block);
         restart();
     });
 });
