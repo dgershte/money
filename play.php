@@ -49,7 +49,7 @@
         var fb = new Firebase("https://moneymoney.firebaseio.com/urls/<? echo $_GET['id']?>/coins");
         fb.on('value',function(data){
             if(data.val()!=null){
-                window.location="index.php";
+                window.location="index.php?id="+<?echo $_GET['id']?>;
             }
         });
         </script>

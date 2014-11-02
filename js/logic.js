@@ -27,6 +27,7 @@ function saveRun(name, gameid, newscore, rundata){
 var fbmain = new Firebase("https://moneymoney.firebaseio.com/");
 fbmain.on('value',function(maindata){
 });
+
 function payUser(name, gameid){
         fbmain.transaction(function(maindata){
         if(maindata==null){
@@ -123,7 +124,7 @@ function getSeedForBlock(block){
 }
 
 //get the number of coins
-getCoins("Danny");
+//getCoins("Danny");
 
 //example:
 //user pays, user can then save a run
@@ -134,19 +135,18 @@ getCoins("Danny");
 //pay out the winners
 //payWinners(1);
 
-coins = 0;
+var coins = 0;
+var block = -1;
+var blockSeed=0;
 function updatecoins(val){
     coins = val;
 }
-block = -1;
 function updateBlock(val){
     block = val;
+    getSeedForBlock(block);
 }
 
 function updateSeed(val){
-    seed = val;
-    console.log(seed);
+    blockSeed = val;
 }
-
-getCurrentBlock();
 //payUser("g1khchwy4l2o891",block);
