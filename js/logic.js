@@ -49,8 +49,7 @@ function getPrizes(){
     var potprize = fbmain.child("games").child(block).child("pot").once('value',
         function(potsize){
             pot=potsize.val();;
-        }
-    }
+        });
 
     var prizes = [];
     while(pot!=0){

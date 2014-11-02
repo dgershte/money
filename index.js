@@ -20,7 +20,10 @@ function addScore(user) {
 
 
 function getHighscores(gameid){
-    getPrizes();
+    var prizes = getPrizes();
+    while(prizes.length<3){
+        prizes.push(0);
+    }
     fbmain.child("games").child(gameid).child("scores").once('value', function(data){
         var obj = data.val();
         console.log(data.val())
@@ -48,7 +51,7 @@ function getHighscores(gameid){
             maindata["users"][scoreObjs[i]["name"]]["coins"]+=prize;
             i++;
         }*/
-        var pot = [20,10,8];
+        var pot = prizes;
         for(var i =0;i<scoreObjs.length;i++){
             if(i > 2) return;
             list.append('<li><img class="place" src="images/place'+(i+1)+'.png"/><div class="pot">'+pot[i]+'BTC</div><div class="userscore">'+scoreObjs[i].name+' '+scoreObjs[i].score+'</div></li>');
