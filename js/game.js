@@ -55,8 +55,11 @@ var platformimg = new Array();
 var charimg = new Array();
 var shadedcharimg = new Array();
 var boneimg = new Array();
+var animimg = new Array();
 var score = 0;
 var stopped=false;
+
+var anims = [];
 
 for(var i = 1; i < 4; i++) {
     var pimg = new Image();
@@ -80,7 +83,14 @@ for(var i = 1; i < 12; i++) {
     var bimg = new Image();
     if(i <6) bimg.src = 'images/treat0001.png';
     else bimg.src = 'images/treat0002.png';
-    boneimg.push(cimg);
+    boneimg.push(bimg);
+}
+
+for(var i=1;i<11; i++){
+    var aimg = new Image();
+    if(i > 9) aimg.src = 'images/collect00'+i+'.png';
+    else aimg.src = 'images/collect000'+i+'.png';
+    animimg.push(aimg);
 }
 
 var saveStuff=[];
@@ -98,6 +108,7 @@ function restart(){
         clearInterval(timer);
     }
     seed(blockSeed);
+    anims =[];
     platforms = [];
     character.x=100;
     character.lasty=0;
@@ -223,6 +234,7 @@ function enterframe(){
     context.clearRect(0,0,677,375);
     drawPlatforms();
     drawBones();
+    drawAnims();
     for(var i=0;i<shadowChars.length;i++){
         drawChar(shadowChars[i],true);
     }
@@ -245,10 +257,10 @@ function createPlatforms(){
 }
 
 function createBones(){
-    if(random()>.98){
+    if(random()>.97){
         var bone = new Bone();
         bone.x=Math.round(677+random()*110+60);
-        bone.y=platforms[platforms.length-1].y-120+200*random();
+        bone.y=platforms[platforms.length-1].y-200+150*random();
         bones.push(bone);
     }
 }
@@ -260,9 +272,25 @@ function collideBones(){
         var d=xd*xd+yd*yd;
         if(Math.sqrt(d)<40){
             bones.splice(i,1);
+            i--;
             score+=10000;
+            anim = new Anim();
+            anim.x=character.x-80;
+            anim.y=character.y-70;
+            anims.push(anim);
         }
     }
+}
+
+function Bone(){
+    this.x=0;
+    this.y=0;
+}
+
+function Anim(){
+    this.x=0;
+    this.y=0;
+    this.frame=0;
 }
 
 function Platform() {
@@ -341,6 +369,20 @@ function drawBones(){
         context.drawImage(boneimg[index],bone.x-10, bone.y-10);
     }
 }
+
+function drawAnims(){
+    for(var i =0; i<anims.length;i++){
+        var anim = anims[i];
+        var index = anim.frame;
+        context.drawImage(animimg[index],anim.x-20, anim.y-10);
+        anim.frame++;
+        if(anim.frame>9){
+            anims.splice(i,1);
+            i--;
+        }
+    }
+}
+
 
 function drawPlatforms(){
     for(var i =0; i<platforms.length;i++){
