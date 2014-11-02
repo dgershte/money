@@ -138,7 +138,7 @@ function getSeedForBlock(block){
 var coins = 0;
 var block = -1;
 var blockSeed=0;
-function updatecoins(val){
+function updateCoins(val){
     coins = val;
 }
 function updateBlock(val){
