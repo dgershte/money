@@ -125,4 +125,5 @@ $(document).ready( function() {
         $("#cashout").hide();
         $("#play").show();
     });
+    $("#bitcoins").html(coins);
 });
