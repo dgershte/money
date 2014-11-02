@@ -40,11 +40,16 @@
         </div>
     <script type="text/javascript" src="js/jquery.js"></script>
     <script src="https://cdn.firebase.com/js/client/1.1.3/firebase.js"></script>
-    <script src="js/logic.js"></script>
-    <script src="js/game.js"></script>
     <script>
         var userid = "<?echo $_GET['id'];?>";
+        console.log(userid);
+        var fbmain = new Firebase("https://moneymoney.firebaseio.com/");
+        fbmain.on('value',function(maindata){
+        });
+
     </script>
+    <script src="js/logic.js"></script>
+    <script src="js/game.js"></script>
     <script type="text/javascript" src="index.js"></script>
     <script type='application/javascript' src='js/fastclick.js'></script>
     </body>

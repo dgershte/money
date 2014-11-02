@@ -10,7 +10,6 @@ function loadBlockChain(){
     getHumanName();
 }
 
-loadBlockChain();
 
 function addScore(user) {
     var place = user.place;
@@ -114,6 +113,7 @@ function endGame(score,rundata){
 }
 
 $(document).ready( function() {
+    loadBlockChain();
     $("#viewhsbtn").click( function() {
         $("#play").hide();
         $("#highscore").show();
