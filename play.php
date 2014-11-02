@@ -41,7 +41,7 @@
         // set URL and other appropriate options
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_HEADER, 0);
-        curl_exec($ch);
+        //curl_exec($ch);
         ?>
             </div>
             <img style="padding:20px" src="https://api.qrserver.com/v1/create-qr-code/?data=<? echo $object->input_address ?>&amp;size=100x100" alt="" title="" />

@@ -2,7 +2,6 @@
 $url = "http://blockchain.info/latestblock";
 $ch = curl_init();
 curl_setopt($ch,CURLOPT_URL,$url);
-//curl_setopt($ch,CURLOPT_CUSTOMREQUEST,'GET');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $json = curl_exec($ch);
 $json_out = json_decode($json);
