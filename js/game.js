@@ -249,7 +249,11 @@ function updatePlatforms(){
 }
 
 function drawChar(character){
-    context.drawImage(charimg[character.frame%9],character.x-charwidth,character.y-55);
+    var index = character.frame%9;
+    if(character.jump) {
+        index = 4;
+    }
+    context.drawImage(charimg[index],character.x-charwidth,character.y-55);
     character.frame++;
 }
 
