@@ -24,32 +24,80 @@ function saveRun(name, gameid, newscore, rundata){
 }
 
 function payUser(name, gameid){
-    var newfb = new Firebase("https://moneymoney.firebaseio.com/");
-        newfb.transaction(function(topfb){
-            if(topfb==null){
-                return {}
+    var fb = new Firebase("https://moneymoney.firebaseio.com/");
+        fb.transaction(function(maindata){
+            if(maindata==null){
+                return maindata;
             }
-            if(topfb["users"][name]["coins"]>0 && topfb["games"][gameid]!=null){
-                if(topfb["games"][gameid]["scores"]==null){
-                    topfb["games"][gameid]["scores"]={};
-                } else if(topfb["games"][gameid]["scores"][name]!=null){
-                    return topfb;
+            if(maindata["users"][name]["coins"]>0 && maindata["games"][gameid]!=null){
+                if(maindata["games"][gameid]["scores"]==null){
+                    maindata["games"][gameid]["scores"]={};
+                    maindata["games"][gameid]["pot"]=0;
+                } else if(maindata["games"][gameid]["scores"][name]!=null){
+                    return maindata;
                 }
-                topfb["users"][name]["coins"]--;
-                topfb["games"][gameid]["scores"][name]={score:0, rundata:""};
-                return topfb;
+                maindata["users"][name]["coins"]--;
+                maindata["games"][gameid]["pot"]++;
+                maindata["games"][gameid]["scores"][name]={score:0, rundata:""};
+                return maindata;
             }
     });
 }
 
-
-function payWinners(){
+function getPrizes(pot){
+    var prizes = [];
+    while(pot!=0){
+        var p = Math.ceil(pot/3*2);
+        pot-=p;
+        prizes.push(p);
+    }
+    return prizes;
 }
 
+function payWinners(gameid){
+    var fb = new Firebase("https://moneymoney.firebaseio.com/");
+    fb.transaction(function(maindata){
+        if(maindata==null){
+            return maindata;
+        }
+        if(maindata["games"][gameid]["over"]==false){
+            if(maindata["games"][gameid]["over"]==false){
+                scores = maindata["games"][gameid]["scores"];
+                if(scores==null){
+                    return maindata;
+                }
+                var scoreObjs = new Array();
+                for(var property in scores){
+                    scoreObjs.push({name:property,score:scores[property]});
+                }
+
+                scoreObjs.sort(function(a,b){
+                    if(a["score"]["score"]<b["score"]["score"]){
+                        return 1;
+                    } else if(a["score"]["score"]==b["score"]["score"]){
+                        return 0;
+                    } else return -1;
+                });
+                var pot = maindata["games"][gameid]["pot"];
+                var prizes = getPrizes(pot);
+                var i = 0;
+                while(prizes.length>0){
+                    var prize = prizes.shift();
+                    maindata["users"][scoreObjs[i]["name"]]["coins"]+=prize;
+                    i++;
+                }
+                maindata["games"][gameid]["over"]=true;
+            }
+            return maindata;
+        }
+    });
+}
 
 //example:
 //user pays, user can then save a run
 payUser("Danny",1);
+payUser("Bob",1);
 saveRun("Danny",1,210,"adsdfsdff");
 
-
+//pay out the winners
+payWinners(1);
