@@ -157,6 +157,10 @@ canvas {
 #playagain {
     width:250px;
     margin:auto;
+    position: absolute;
+    left: 50%;
+    margin-left: -125px;
+    bottom: 20px;
 }
 
 #game {
