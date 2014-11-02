@@ -134,6 +134,11 @@ section {
     float:left;
     margin-top: 5px;
     margin-left: 15px;
+    color: rgb(250, 234,56);
+}
+
+.username {
+    color: #BFE9EB;
 }
 
 .userscore {

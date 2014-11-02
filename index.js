@@ -54,7 +54,7 @@ function getHighscores(gameid){
         var pot = prizes;
         for(var i =0;i<scoreObjs.length;i++){
             if(i > 2) return;
-            list.append('<li><img class="place" src="images/place'+(i+1)+'.png"/><div class="pot">'+pot[i]+'BTC</div><div class="userscore">'+scoreObjs[i].name+' '+scoreObjs[i].score+'</div></li>');
+            list.append('<li><img class="place" src="images/place'+(i+1)+'.png"/><div class="pot">'+pot[i]+'BTC</div><div class="userscore"><span class="username">'+scoreObjs[i].name+' </span> '+scoreObjs[i].score+'</div></li>');
         }
     });
 }
