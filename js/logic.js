@@ -18,6 +18,7 @@ function saveRun(name, gameid, newscore, rundata){
         if(newscore>game["scores"][name]["score"]){
             game["scores"][name]["score"]=newscore;
             game["scores"][name]["rundata"]=rundata;
+            game["scores"][name]["name"]=humanName;
             return game;
         }
     });
@@ -98,6 +99,13 @@ function payWinners(gameid){
         }
     });
 }*/
+function getHumanName(userid){
+    fbmain.child("urls").child(userid).child("/name").on('value',function(data){
+        if(data.val()!=null){
+            updateHumanName(data.val());
+        }
+    });
+}
 
 function getCoins(userid){
     fbmain.child("urls").child(userid).child("/coins").on('value',function(data){
@@ -138,6 +146,12 @@ function getSeedForBlock(block){
 var coins = 0;
 var block = -1;
 var blockSeed=0;
+var humanName="";
+
+function updateHumanName(val){
+    humanName=val;
+}
+
 function updateCoins(val){
     coins = val;
 }
